@@ -1,0 +1,35 @@
+<Panel ux:Class="SidebarIcon" Width="50" Height="50">
+		<Circle Layer="Overlay">
+			<Stroke Width="5">
+				<SolidColor Color="#FFBBB1" />
+			</Stroke>
+		</Circle>
+
+		<Circle ux:Name="tapAnimationCircle" Layer="Overlay">
+			<Stroke ux:Name="tapAnimationStroke" Width="3">
+				<SolidColor Color="#fff5" />
+			</Stroke>
+		</Circle>
+
+		<Style>
+			<Image MaxWidth="48" MaxHeight="48" />
+		</Style>
+
+		<Tapped>
+			<Scale Target="tapAnimationCircle" Factor="5"
+				   Duration="0.5" Easing="QuarticOut"
+				   DurationBack="0" />
+
+			<Change tapAnimationCircle.Opacity="0"
+				    Duration="0.5" Easing="QuarticOut"
+				    DurationBack="0" />
+
+			<Change tapAnimationCircle.Smoothness="10"
+				    Duration="0.5" Easing="QuarticOut"
+				    DurationBack="0" />
+
+			<Change tapAnimationStroke.Width="0"
+				    Duration="0.5" Easing="ExponentialOut"
+				    DurationBack="0" />
+		</Tapped>
+	</Panel>

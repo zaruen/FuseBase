@@ -1,0 +1,12 @@
+<StackPanel ux:Class="HamburgerIcon" Width="25" Height="21">
+	<Style>
+		<Rectangle Margin="0,2" Height="3" CornerRadius="3">
+			<SolidColor Color="#fff" />
+		</Rectangle>
+	</Style>
+
+	<Rectangle />
+	<Rectangle />
+	<Rectangle />
+</StackPanel>
+

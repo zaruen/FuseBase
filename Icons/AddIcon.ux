@@ -1,0 +1,6 @@
+<Icon ux:Class="AddIcon">
+	<MultiDensityImageSource>
+		<FileImageSource File="../assets/add@1x.png" Density="1" />
+		<FileImageSource File="../assets/add@2x.png" Density="2" />
+	</MultiDensityImageSource>
+</Icon>

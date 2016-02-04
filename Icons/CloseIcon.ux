@@ -1,0 +1,14 @@
+<Panel ux:Class="CloseIcon" Width="25" Height="25">
+	<Style>
+		<Rectangle Height="3" CornerRadius="3">
+			<SolidColor Color="#fff" />
+		</Rectangle>
+	</Style>
+
+	<Rectangle>
+		<Rotation Degrees="45" />
+	</Rectangle>
+	<Rectangle>
+		<Rotation Degrees="-45" />
+	</Rectangle>
+</Panel>

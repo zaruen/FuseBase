@@ -1,0 +1,6 @@
+<Icon ux:Class="StickersIcon">
+	<MultiDensityImageSource>
+		<FileImageSource File="../assets/stickers@1x.png" Density="1" />
+		<FileImageSource File="../assets/stickers@2x.png" Density="2" />
+	</MultiDensityImageSource>
+</Icon>
