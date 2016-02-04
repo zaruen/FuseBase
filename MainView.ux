@@ -1,0 +1,153 @@
+<App Theme="Basic" Background="#eeeeeeff">
+	
+		<ClientPanel>
+	    <DockPanel>
+	      <Grid ColumnCount="3" Dock="Top" Background="#0cf">
+	        <Button Text="A">
+	          <Clicked>
+	            <NavigateTo Target="_a" NavigationContext="_mainNavigation" />
+	          </Clicked>
+	        </Button>
+	        <Button Text="B">
+	          <Clicked>
+	            <NavigateTo Target="_b" NavigationContext="_mainNavigation" />
+	          </Clicked>
+	        </Button>
+	        <Button Text="C">
+	          <Clicked>
+	            <NavigateTo Target="_c" NavigationContext="_mainNavigation" />
+	          </Clicked>
+	        </Button>
+	      </Grid>
+
+	      <Panel Dock="Fill">
+
+	        <LinearNavigation ux:Name="_mainNavigation" Easing="CubicInOut" />
+
+	        <Style>
+	          <PageControl ClipToBounds="true">
+	            <Style>
+	              <Text Alignment="Center" FontSize="30" />
+	            </Style>
+	            <EnteringAnimation>
+	              <Move Y="-1" RelativeTo="Size" />
+	            </EnteringAnimation>
+	            <ExitingAnimation>
+	              <Move Y="1" RelativeTo="Size" />
+	            </ExitingAnimation>
+	          </PageControl>
+	        </Style>
+			        <PageControl ux:Name="_a">
+			        	<JavaScript>
+	                		var Observable = require('FuseJS/Observable');
+
+	        				var myVariable = Observable("some value");
+	        				var name = Observable("");
+	        				var age = Observable("");
+
+	        				var lowercase = myVariable.map(function(x){
+	        					return x.toLowerCase();
+	        				});
+
+	        				var uppercase = myVariable.map(function(x){
+	        					return x.toUpperCase();
+	        				});
+
+
+	        				var isThomas = myVariable.map(function(x){
+	        					return x=="Thomas";
+	        				});
+
+	        				function button_clicked(){
+	        					myVariable.value = "some other value";
+	        					debug_log(myVariable);
+	        				}
+
+	        				function Person(name, age){
+	        					this.name = name;
+	        					this.age = age;
+	        				}
+
+	        				var myPerson = Observable(
+	        					new Person("Thomas", 25),
+	        					new Person("Cassandre", 25)
+	        				);
+
+	        				var listUppercase = myPerson
+	        				.map(function(x){
+								return new Person(x.name.toUpperCase(), x.age);
+	        				})
+	        				.where(function(x){
+	        					return x.age > 30;
+	        				});
+
+	        				function submit(){
+	        					var newPerson = new Person(name.value, age.value);
+	        					myPerson.add(newPerson);
+	        					name.value="";
+	        					age.value="";
+	        				}
+
+	        				module.exports = {
+	        					myVariable : myVariable,
+	        					button_clicked: button_clicked,
+	        					uppercase : uppercase,
+	        					lowercase : lowercase,
+	        					isThomas: isThomas,
+	        					myPerson : myPerson,
+	        					name : name,
+	        					age: age,
+	        					submit : submit,
+	        					listUppercase : listUppercase
+	        				}
+	                	</JavaScript>
+	                	<MyPage />
+	                  <Page Background="#0fc">
+	                  	<ScrollViewer>
+		                    <StackPanel>
+		                    	<StackPanel>
+		                    		<TextInput Value="{name}"/>
+		                    		<TextInput Value="{age}"/>
+		                    		<Button Clicked="{submit}" Text="Submit"/>
+		                    	</StackPanel>
+		                    <!-- 	<StackPanel>
+				                	<Each Items="{listUppercase}">
+				                		<Text Value="{name}" />
+				                		<Text Value="{age}" />
+				                	</Each>
+			                	</StackPanel> -->
+			                	<Text Value="Full list" TextColor="#F88585" FontSize="12"/>
+			                	<StackPanel>	                		
+				                	<Each Items="{myPerson}">
+				                		<StackPanel Orientation="Horizontal" Padding="40,0,40,0">
+					                		<Text Value="{name}" />
+					                		<Text Value="{age}" Margin="20"/>
+				                		</StackPanel>
+				                	</Each>
+			                	</StackPanel>
+		                    </StackPanel>
+		                </ScrollViewer>
+	                  </Page>
+	                  <Page Background="#c0f">
+	                    <Text Value="A3" />
+	                  </Page>
+			        </PageControl>
+
+	        <PageControl ux:Name="_b">
+	          <Page Background="#888">
+	          	<RotatingMenu />
+	          	
+	          </Page>
+	          <Page Background="#0cf">
+	            <Text Value="B2" />
+	          </Page>
+	          <Page Background="#f0c">
+	            <Text Value="B3" />
+	          </Page>
+	        </PageControl>
+	        <FuseIntro ux:Name="_c"/>
+	      </Panel>
+	    </DockPanel>
+	  </ClientPanel>
+</App>
+

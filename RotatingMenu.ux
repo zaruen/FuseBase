@@ -1,0 +1,89 @@
+<Panel ux:Class="RotatingMenu">
+	<iOS.StatusBarConfig ux:Name="statusBarConfig" Style="Light" IsVisible="true" Animation="Slide"/>
+	<BottomBarBackground Dock="Bottom" />
+
+	          	<Panel ux:Name="menuButton" Width="170" Height="170" Alignment="TopLeft" Offset="-85,-85" Padding="40">
+	          		<Circle Layer="Background">
+	          			<SolidColor Color="#ee8485"/>
+	          		</Circle>
+	          		<HamburgerIcon Alignment="BottomRight"/>
+	          		<CloseIcon Alignment="BottomLeft"/>
+
+	          		<Clicked><Toggle Target="showMenu"/></Clicked>
+	          	</Panel>
+	            <Panel ux:Name="content" TransformOrigin="TopLeft">
+	            	<Grid RowCount="4">
+						<Panel><SolidColor Color="#FDF0CC" /><Text Value="COUCOU" TextColor="#C2768E"/></Panel>
+						<Panel><SolidColor Color="#F7CAB1" /><Text Value="MON" TextColor="#E8A0A2"/></Panel>
+						<Panel><SolidColor Color="#E8A0A2" /><Text Value="BEBE" TextColor="#F7CAB1"/></Panel>
+						<Panel><SolidColor Color="#C2768E" /><Text Value="D'AMOUR" TextColor="#FDF0CC"/></Panel>
+					</Grid>
+				</Panel>
+            	<StackPanel ux:Name="sidebar" Offset="-130,0" Alignment="BottomLeft" Margin="0,0,0,50">
+            		<Style>
+            			<StackPanel Margin="30"/>
+            			<Text TextColor="#fffa" FontSize="14" Alignment="HorizontalCenter" Font="RobotoBold"/>
+            		</Style>
+            		<StackPanel ux:Name="profileButton">
+            			<SidebarIcon>
+            				<AccountIcon />
+            			</SidebarIcon>
+            			<Text>PROFILE</Text>
+            			<Clicked><Set showMenu.Value="False" /></Clicked>
+            		</StackPanel>
+            		<StackPanel ux:Name="stickersButton">
+            			<SidebarIcon>
+            				<StickersIcon />
+            			</SidebarIcon>
+            			<Text>STICKERS</Text>
+            			<Clicked><Set showMenu.Value="False" /></Clicked>
+            		</StackPanel>
+            		<StackPanel ux:Name="addButton">
+            			<SidebarIcon>
+            				<AddIcon />
+            			</SidebarIcon>
+            			<Text>ADD STICKER</Text>
+            			<Clicked><Set showMenu.Value="False" /></Clicked>
+            		</StackPanel>
+            	</StackPanel>
+            	<WhileTrue ux:Name="showMenu">
+            		<Rotate Target="content"
+            				Degrees="-45"
+            				Duration="0.45"
+            				Easing="ExponentialInOut"
+            				DurationBack="0.6"
+            				EasingBack="BounceIn"/>
+    				<Rotate Target="menuButton"
+    						Degrees="-90"
+    						Duration="0.45"
+    						Easing="ExponentialInOut"
+    						DurationBack="0.6"
+    						EasingBack="BounceIn"/>
+					<Move 	Target="profileButton"
+							X="120"
+							Delay="0.3"
+							Duration="0.6"
+							Easing="ElasticOut"
+							DelayBack="0"
+							DurationBack="0.3"
+							EasingBack="QuarticInOut"/>
+					<Move 	Target="stickersButton"
+							X="120"
+							Delay="0.3"
+							Duration="0.6"
+							Easing="ElasticOut"
+							DelayBack="0"
+							DurationBack="0.3"
+							EasingBack="QuarticInOut"/>
+					<Move 	Target="addButton"
+							X="120"
+							Delay="0.3"
+							Duration="0.6"
+							Easing="ElasticOut"
+							DelayBack="0"
+							DurationBack="0.3"
+							EasingBack="QuarticInOut"/>
+
+					<Change statusBarConfig.IsVisible="false" Delay=".25" />
+            	</WhileTrue>
+</Panel>
