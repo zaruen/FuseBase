@@ -1,0 +1,40 @@
+<Panel ux:Class="BasicAnimPage">
+	<StackPanel>
+		<Style>
+			<Rectangle Width="100" Height="100" CornerRadius="10" Margin="20">
+				<SolidColor Color="#96FBA0"/>
+			</Rectangle>
+		</Style>
+		<StackPanel Orientation="Horizontal" ContentAlignment="Center" ux:Name="stack" Dock="Top" Background="#FEB6B6">
+			<Rectangle ux:Name="rect1">
+				<WhilePressed>
+		            <Rotate Target="rect1" Degrees="90" DelayBack="0.5" Duration="0.5" Easing="QuadraticOut" EasingBack="QuadraticIn" />
+		            <Rotate Target="rect2" Degrees="90" Delay="0.5" Duration="0.5" EasingBack="QuadraticIn" Easing="QuadraticOut" />
+		        </WhilePressed>
+			</Rectangle>
+			<Rectangle ux:Name="rect2">
+				<WhilePressed>
+					<Rotate Target="rect2" Degrees="90" DelayBack="0.5" Duration="0.5" Easing="QuadraticInOut" EasingBack="CubicIn" />
+				</WhilePressed>
+				<Tapped>
+					<Move Target="rect2" Y="200" DelayBack="0.5" Duration="0.5" Easing="QuadraticInOut" EasingBack="CubicIn" />
+					<Scale Target="rect2" Factor="0.8" DelayBack="0.5" Duration="0.5" Easing="QuadraticInOut" EasingBack="CubicIn"/>
+				</Tapped>
+			</Rectangle>			
+		</StackPanel>
+		<StackPanel Orientation="Horizontal" ContentAlignment="Center" ux:Name="stack" Dock="Top" Background="#FEFDB6">
+			<Rectangle ux:Name="rect3">
+				<Draggable/>
+		        <WhileDragging>
+		            <Rotate Degrees="90" Duration="0.8" Easing="BounceOut" EasingBack="BounceIn"/>
+		            <Change rect3.CornerRadius="100" Duration="0.8"/>
+		        </WhileDragging>
+			</Rectangle>
+			<PointAttractor Offset="0" Strength="100" Radius="800"/>
+		</StackPanel>
+	</StackPanel>
+
+
+
+
+</Panel>

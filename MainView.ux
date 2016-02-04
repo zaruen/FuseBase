@@ -103,7 +103,7 @@
 	                	</JavaScript>
 	                	<MyPage />
 	                  <Page Background="#0fc">
-	                  	<ScrollViewer>
+	                  	<ScrollView>
 		                    <StackPanel>
 		                    	<StackPanel>
 		                    		<TextInput Value="{name}"/>
@@ -126,7 +126,7 @@
 				                	</Each>
 			                	</StackPanel>
 		                    </StackPanel>
-		                </ScrollViewer>
+		                </ScrollView>
 	                  </Page>
 	                  <Page Background="#c0f">
 	                    <Text Value="A3" />
@@ -139,7 +139,7 @@
 	          	
 	          </Page>
 	          <Page Background="#0cf">
-	            <Text Value="B2" />
+	            <BasicAnimPage />
 	          </Page>
 	          <Page Background="#f0c">
 	            <Text Value="B3" />
