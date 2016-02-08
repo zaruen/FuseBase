@@ -1,0 +1,6 @@
+<Panel ux:Class="CircleIcon" Width="80" Height="80">
+	<Image Source="{Resource iconFile}" Width="60" Height="60"/>
+	<Circle>
+		<Stroke Brush="#fff" Width="3"/>
+	</Circle>
+</Panel>

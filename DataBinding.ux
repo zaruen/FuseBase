@@ -1,0 +1,12 @@
+<Panel ux:Class="DataBinding">
+	
+	
+	<StackPanel>
+		<Select Data="{superNestedObject.here.is.a.very.nested.object}">
+			<Text Value="Yo"/>
+			<Text Value="{message2}"/>
+			<Text Value="{message3}"/>
+		</Select>
+	</StackPanel>
+
+</Panel>

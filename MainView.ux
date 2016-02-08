@@ -1,6 +1,9 @@
 <App Theme="Basic" Background="#eeeeeeff">
 	
+	<JavaScript File="Javascript/main.js"/>
+
 		<ClientPanel>
+
 	    <DockPanel>
 	      <Grid ColumnCount="3" Dock="Top" Background="#0cf">
 	        <Button Text="A">
@@ -38,69 +41,7 @@
 	          </PageControl>
 	        </Style>
 			        <PageControl ux:Name="_a">
-			        	<JavaScript>
-	                		var Observable = require('FuseJS/Observable');
-
-	        				var myVariable = Observable("some value");
-	        				var name = Observable("");
-	        				var age = Observable("");
-
-	        				var lowercase = myVariable.map(function(x){
-	        					return x.toLowerCase();
-	        				});
-
-	        				var uppercase = myVariable.map(function(x){
-	        					return x.toUpperCase();
-	        				});
-
-
-	        				var isThomas = myVariable.map(function(x){
-	        					return x=="Thomas";
-	        				});
-
-	        				function button_clicked(){
-	        					myVariable.value = "some other value";
-	        					debug_log(myVariable);
-	        				}
-
-	        				function Person(name, age){
-	        					this.name = name;
-	        					this.age = age;
-	        				}
-
-	        				var myPerson = Observable(
-	        					new Person("Thomas", 25),
-	        					new Person("Cassandre", 25)
-	        				);
-
-	        				var listUppercase = myPerson
-	        				.map(function(x){
-								return new Person(x.name.toUpperCase(), x.age);
-	        				})
-	        				.where(function(x){
-	        					return x.age > 30;
-	        				});
-
-	        				function submit(){
-	        					var newPerson = new Person(name.value, age.value);
-	        					myPerson.add(newPerson);
-	        					name.value="";
-	        					age.value="";
-	        				}
-
-	        				module.exports = {
-	        					myVariable : myVariable,
-	        					button_clicked: button_clicked,
-	        					uppercase : uppercase,
-	        					lowercase : lowercase,
-	        					isThomas: isThomas,
-	        					myPerson : myPerson,
-	        					name : name,
-	        					age: age,
-	        					submit : submit,
-	        					listUppercase : listUppercase
-	        				}
-	                	</JavaScript>
+			        	
 	                	<MyPage />
 	                  <Page Background="#0fc">
 	                  	<ScrollView>
@@ -122,14 +63,49 @@
 				                		<StackPanel Orientation="Horizontal" Padding="40,0,40,0">
 					                		<Text Value="{name}" />
 					                		<Text Value="{age}" Margin="20"/>
+
+					                		<Match Value="{name}">
+					                			<Case String="Thomas">
+					                				<Text TextColor="#FF6778" Value="C'est moi" />
+					                			</Case>
+					                			<Case String="Cassandre">
+					                				<Text TextColor="#FF6778" Value="Bibi" />
+					                			</Case>
+					                		</Match>
 				                		</StackPanel>
 				                	</Each>
 			                	</StackPanel>
+
+								<WhileEmpty Items="{myPerson}">
+									<Text FontSize="10" Value="Nobody there !" />
+								</WhileEmpty>							
+
+			                	<WhileCount Items="{myPerson}" EqualTo="2">
+			                		<Text FontSize="10" Value="Boum ! Only two of us ! LE KIFF" />
+			                	</WhileCount>
+
+			                	<WhileCount Items="{myPerson}" GreaterThan="2">
+			                		<Text FontSize="10" Value="Putain ! Qui vient nous faire chier !?" />
+			                		<Button Text="Delete le relou" Clicked="{deleteRelou}"/>
+			                	</WhileCount>
 		                    </StackPanel>
 		                </ScrollView>
 	                  </Page>
 	                  <Page Background="#c0f">
-	                    <Text Value="A3" />
+	                    <DataBinding />
+	                  </Page>
+	                  <Page Background="#FFF17D">
+	                  	<Text FontSize="12" TextColor="#FF677B" Value="{errorMessage}" Alignment="Center"/>
+	                  	<ScrollView ClipToBounds="True">
+	                  		<StackPanel>
+	                  			<Each Items="{pictures}">
+	                  				<DockPanel Margin="0,0,0,20">
+	                  					<Image Url="{thumbnailUrl}" Dock="Left"/>
+	                  					<Text FontSize="15" Value="{title}" TextWrapping="Wrap" Alignment="CenterLeft" />
+	                  				</DockPanel>
+	                  			</Each>
+	                  		</StackPanel>
+	                  	</ScrollView>
 	                  </Page>
 			        </PageControl>
 
@@ -141,8 +117,8 @@
 	          <Page Background="#0cf">
 	            <BasicAnimPage />
 	          </Page>
-	          <Page Background="#f0c">
-	            <Text Value="B3" />
+	          <Page Background="#06FF9C">
+	            <WelcomeAnimation/>
 	          </Page>
 	        </PageControl>
 	        <FuseIntro ux:Name="_c"/>

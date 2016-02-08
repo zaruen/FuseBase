@@ -1,0 +1,104 @@
+<Panel ux:Class="WelcomeAnimation">
+		<Page>
+			<CircleIcon ux:Class="AccountCircleIcon">
+				<FileImageSource File="Assets/profile@1x.png" ux:Key="iconFile" />
+			</CircleIcon>
+			<CircleIcon ux:Class="PaymentCircleIcon">
+				<FileImageSource File="Assets/payment.png" ux:Key="iconFile" />
+				<Circle Fill="#06FF9C"/>
+			</CircleIcon>
+			<CircleIcon ux:Class="NotesCircleIcon">
+				<FileImageSource File="Assets/notes.png" ux:Key="iconFile" />
+			</CircleIcon>
+			<CircleIcon ux:Class="CameraCircleIcon">
+				<FileImageSource File="Assets/camera.png" ux:Key="iconFile" />
+			</CircleIcon>
+
+
+			<Viewbox Alignment="Center">
+				<Panel Height="800" Width="500" >
+					<Panel Height="80%" Alignment="Bottom">
+						<Panel ux:Name="panel2">
+							<CameraCircleIcon ux:Name="camera" Opacity="0">
+								<Image ux:Name="arrow1" File="Assets/arrow.png" Offset="0,80" Width="50" Height="50" Opacity="0"/>
+							</CameraCircleIcon>
+
+							<PaymentCircleIcon ux:Name="payment" Opacity="0">
+								<Translation ux:Name="paymentTranslation"/>
+								<Rotation Degrees="45" ux:Name="paymentRotation"/>
+							</PaymentCircleIcon>
+
+							<NotesCircleIcon ux:Name="notes" Opacity="0">
+								<Translation ux:Name="notesTranslation"/>
+								<Rotation Degrees="-45" ux:Name="notesRotation"/>
+							</NotesCircleIcon>
+
+							<Image ux:Name="arrow2" File="Assets/arrow.png" Offset="0,80" Width="50" Height="50" Opacity="0"/>
+						</Panel>
+
+						<Panel ux:Name="Send" Width="80" Height="80" Opacity="0">
+						    <Panel ux:Name="sendImage">
+								<Image File="Assets/send.png" Width="60%" Height="60%"/>
+								<Image File="Assets/send.png" Width="90%" Height="90%" Color="#06FF9C"/>
+								<Scaling ux:Name="sendScaling" Factor="0.7"/>
+								<Translation X="5"/>
+								<Rotation ux:Name="sendRotation"/>
+							</Panel>
+							<Circle>
+								<Stroke Brush="#fff" Width="3"/>
+							</Circle>
+						</Panel>
+
+					</Panel>
+
+					<Text ux:Class="T" TextColor="#fff" FontSize="18" Alignment="Center" Margin="0,5" Opacity="0"/>
+					<Panel Alignment="Top" Height="90%">
+						<StackPanel Alignment="BottomCenter">
+							<T ux:Name="text1">Take a photo.</T>
+							<T ux:Name="text2">Add price and a license.</T>
+							<T ux:Name="text3">Share.</T>
+							<T ux:Name="text4" TextColor="#fff" Margin="0,15">Done!</T>
+						</StackPanel>
+					</Panel>
+
+					<WhileActive>
+						<Change timeline.TargetProgress="1" />
+					</WhileActive>
+
+					<Timeline ux:Name="timeline">
+						<Change camera.Opacity="1"     Duration="1" />
+						<Change text1.Opacity="1"      Duration="1" />
+
+						<Move Target="camera" Y="-2"   Duration="1"   Delay="1" Easing="BackOut" RelativeTo="Size" />
+						<Change paymentTranslation.X="-35"   Duration="1"   Delay="1" Easing="BackOut"/>
+						<Change notesTranslation.X="35"      Duration="1"   Delay="1" Easing="BackOut"/>
+						<Change payment.Opacity="1"    Duration="1"   Delay="1" Easing="BackOut"/>
+						<Change notes.Opacity="1"      Duration="1"   Delay="1" Easing="BackOut"/>
+						<Change paymentRotation.Degrees="0" Duration="1"   Delay="1" Easing="BackOut"/>
+						<Change notesRotation.Degrees="0"   Duration="1"   Delay="1" Easing="BackOut"/>
+						<Change text2.Opacity="1"      Duration="1"   Delay="1"/>
+
+						<Change arrow1.Opacity="1"     Duration="0.6"   Delay="1.5"/>
+						
+						<Change text3.Opacity="1"      Duration="1"   Delay="2"/>
+
+						<Move Target="panel2" Y="-0.25" Duration="1"   Delay="3" Easing="BackOut" RelativeTo="Size"/>
+						<Change Send.Opacity="1"       Duration="1"   Delay="3"/>
+						<Change text3.Opacity="1"      Duration="1"   Delay="3"/>
+
+						<Change arrow2.Opacity="1"     Duration="0.6"   Delay="3.5"/>
+						
+
+						<Change sendRotation.Degrees="-45" Duration="0.5" Delay="3.8"/>
+						<Move Target="sendImage"       Duration="0.8" Delay="4.3" Easing="BackOut" X="25"/>
+						<Change sendScaling.Factor="1" Duration="0.8" Delay="4.3" Easing="BackOut" />
+
+						<Change text4.Opacity="1"      Duration="1" Delay="4.7" />
+					</Timeline>
+
+				</Panel>
+			</Viewbox>
+
+			
+		</Page>
+</Panel>
