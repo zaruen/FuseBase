@@ -1,11 +1,11 @@
 <App Theme="Basic" Background="#eeeeeeff">
 	
 	<JavaScript File="Javascript/main.js"/>
-
+	<Viewport Perspective="200" CullFace="Back">
 		<ClientPanel>
 
 	    <DockPanel>
-	      <Grid ColumnCount="3" Dock="Top" Background="#0cf">
+	      <Grid ColumnCount="3" Dock="Bottom" Background="#0cf">
 	        <Button Text="A">
 	          <Clicked>
 	            <NavigateTo Target="_a" NavigationContext="_mainNavigation" />
@@ -107,12 +107,14 @@
 	                  		</StackPanel>
 	                  	</ScrollView>
 	                  </Page>
+	                  <Page Background="#08FFED">
+	                  	<MultiLayout />
+              		  </Page>
 			        </PageControl>
 
 	        <PageControl ux:Name="_b">
 	          <Page Background="#888">
-	          	<RotatingMenu />
-	          	
+	          	<RotatingMenu />	
 	          </Page>
 	          <Page Background="#0cf">
 	            <BasicAnimPage />
@@ -120,10 +122,14 @@
 	          <Page Background="#06FF9C">
 	            <WelcomeAnimation/>
 	          </Page>
+	          <Page Background="#CCCCCC">
+	          	<ScrollingAnimationPage />
+	          </Page>
 	        </PageControl>
 	        <FuseIntro ux:Name="_c"/>
 	      </Panel>
 	    </DockPanel>
 	  </ClientPanel>
+	</Viewport>
 </App>
 

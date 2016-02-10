@@ -1,0 +1,32 @@
+<Panel ux:Class="MultiLayout" >
+	<MultiLayoutPanel ux:Name="multiLayoutPanel">
+	    <DockLayout/>
+	    <Panel ux:Name="panel11">
+	        <Placeholder Width="50" Height="50">
+	            <Rectangle ux:Name="rect" Fill="Teal">
+	                <LayoutAnimation>
+	                    <Move X="1" Y="1" RelativeTo="LayoutChange" Duration="1"/>
+	                    <Resize X="1" Y="1" RelativeTo="LayoutChange" Duration="1"/>
+	                </LayoutAnimation>
+	            </Rectangle>
+	            <Clicked>
+	                <Set multiLayoutPanel.LayoutElement="panel22"/>
+	            </Clicked>
+	        </Placeholder>
+	    </Panel>
+	    <Panel ux:Name="panel22" Dock="Right" Width="200">
+	        <Placeholder Target="rect">
+	            <Clicked>
+	                <Set multiLayoutPanel.LayoutElement="panel33"/>
+	            </Clicked>
+	        </Placeholder>
+	    </Panel>
+	    <Panel ux:Name="panel33" Dock="Bottom" Height="100">
+	        <Placeholder Target="rect">
+	            <Clicked>
+	                <Set multiLayoutPanel.LayoutElement="panel11"/>
+	            </Clicked>
+	        </Placeholder>
+	    </Panel>
+	</MultiLayoutPanel>
+</Panel>

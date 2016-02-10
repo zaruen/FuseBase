@@ -30,7 +30,14 @@
 		            <Change rect3.CornerRadius="100" Duration="0.8"/>
 		        </WhileDragging>
 			</Rectangle>
-			<PointAttractor Offset="0" Strength="100" Radius="800"/>
+			<PointAttractor Offset="-100,0,0" Strength="100" Radius="800"/>
+
+			<Rectangle ux:Name="rect4">
+				<Tapped>
+					<Rotate DegreesY="360" Duration="0.8" Easing="QuadraticOut" EasingBack="QuadraticIn"/>
+					
+				</Tapped>
+			</Rectangle>
 		</StackPanel>
 	</StackPanel>
 
