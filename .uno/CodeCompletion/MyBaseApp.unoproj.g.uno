@@ -1,3 +1,10 @@
+sealed class MyBaseApp_FuseReactiveSelect_object_Data_Property: Uno.UX.Property<object>
+{
+    Fuse.Reactive.Select _obj;
+    public MyBaseApp_FuseReactiveSelect_object_Data_Property(Fuse.Reactive.Select obj) { _obj = obj;  }
+    protected override object OnGet() { return _obj.Data; }
+    protected override void OnSet(object v, object origin) { _obj.Data = v; }
+}
 sealed class MyBaseApp_FuseControlsTextControl_string_Value_Property: Uno.UX.Property<string>
 {
     Fuse.Controls.TextControl _obj;
@@ -7,13 +14,6 @@ sealed class MyBaseApp_FuseControlsTextControl_string_Value_Property: Uno.UX.Pro
     protected override void OnAddListener(Uno.UX.ValueChangedHandler<string> listener) { _obj.ValueChanged += listener; }
     protected override void OnRemoveListener(Uno.UX.ValueChangedHandler<string> listener) { _obj.ValueChanged -= listener; }
 }
-sealed class MyBaseApp_FuseReactiveEach_object_Items_Property: Uno.UX.Property<object>
-{
-    Fuse.Reactive.Each _obj;
-    public MyBaseApp_FuseReactiveEach_object_Items_Property(Fuse.Reactive.Each obj) { _obj = obj;  }
-    protected override object OnGet() { return _obj.Items; }
-    protected override void OnSet(object v, object origin) { _obj.Items = v; }
-}
 sealed class MyBaseApp_FuseControlsToggleControl_bool_Value_Property: Uno.UX.Property<bool>
 {
     Fuse.Controls.ToggleControl _obj;
@@ -22,6 +22,20 @@ sealed class MyBaseApp_FuseControlsToggleControl_bool_Value_Property: Uno.UX.Pro
     protected override void OnSet(bool v, object origin) { _obj.SetValue(v, origin); }
     protected override void OnAddListener(Uno.UX.ValueChangedHandler<bool> listener) { _obj.ValueChanged += listener; }
     protected override void OnRemoveListener(Uno.UX.ValueChangedHandler<bool> listener) { _obj.ValueChanged -= listener; }
+}
+sealed class MyBaseApp_FuseControlsImage_FuseResourcesImageSource_Source_Property: Uno.UX.Property<Fuse.Resources.ImageSource>
+{
+    Fuse.Controls.Image _obj;
+    public MyBaseApp_FuseControlsImage_FuseResourcesImageSource_Source_Property(Fuse.Controls.Image obj) { _obj = obj;  }
+    protected override Fuse.Resources.ImageSource OnGet() { return _obj.Source; }
+    protected override void OnSet(Fuse.Resources.ImageSource v, object origin) { _obj.Source = v; }
+}
+sealed class MyBaseApp_FuseControlsRectangle_float4_CornerRadius_Property: Uno.UX.Property<float4>
+{
+    Fuse.Controls.Rectangle _obj;
+    public MyBaseApp_FuseControlsRectangle_float4_CornerRadius_Property(Fuse.Controls.Rectangle obj) { _obj = obj;  }
+    protected override float4 OnGet() { return _obj.CornerRadius; }
+    protected override void OnSet(float4 v, object origin) { _obj.CornerRadius = v; }
 }
 sealed class MyBaseApp_FuseDrawingSolidColor_float4_Color_Property: Uno.UX.Property<float4>
 {
@@ -51,6 +65,13 @@ sealed class MyBaseApp_FuseEffectsBlur_float_Radius_Property: Uno.UX.Property<fl
     protected override float OnGet() { return _obj.Radius; }
     protected override void OnSet(float v, object origin) { _obj.Radius = v; }
 }
+sealed class MyBaseApp_FuseControlsMultiLayoutPanel_FuseElementsElement_LayoutElement_Property: Uno.UX.Property<Fuse.Elements.Element>
+{
+    Fuse.Controls.MultiLayoutPanel _obj;
+    public MyBaseApp_FuseControlsMultiLayoutPanel_FuseElementsElement_LayoutElement_Property(Fuse.Controls.MultiLayoutPanel obj) { _obj = obj;  }
+    protected override Fuse.Elements.Element OnGet() { return _obj.LayoutElement; }
+    protected override void OnSet(Fuse.Elements.Element v, object origin) { _obj.LayoutElement = v; }
+}
 sealed class MyBaseApp_FuseiOSStatusBarConfig_bool_IsVisible_Property: Uno.UX.Property<bool>
 {
     Fuse.iOS.StatusBarConfig _obj;
@@ -64,6 +85,34 @@ sealed class MyBaseApp_FuseElementsElement_float_Opacity_Property: Uno.UX.Proper
     public MyBaseApp_FuseElementsElement_float_Opacity_Property(Fuse.Elements.Element obj) { _obj = obj;  }
     protected override float OnGet() { return _obj.Opacity; }
     protected override void OnSet(float v, object origin) { _obj.Opacity = v; }
+}
+sealed class MyBaseApp_FuseTriggersTimeline_double_TargetProgress_Property: Uno.UX.Property<double>
+{
+    Fuse.Triggers.Timeline _obj;
+    public MyBaseApp_FuseTriggersTimeline_double_TargetProgress_Property(Fuse.Triggers.Timeline obj) { _obj = obj;  }
+    protected override double OnGet() { return _obj.TargetProgress; }
+    protected override void OnSet(double v, object origin) { _obj.TargetProgress = v; }
+}
+sealed class MyBaseApp_FuseTranslation_float_X_Property: Uno.UX.Property<float>
+{
+    Fuse.Translation _obj;
+    public MyBaseApp_FuseTranslation_float_X_Property(Fuse.Translation obj) { _obj = obj;  }
+    protected override float OnGet() { return _obj.X; }
+    protected override void OnSet(float v, object origin) { _obj.X = v; }
+}
+sealed class MyBaseApp_FuseRotation_float_Degrees_Property: Uno.UX.Property<float>
+{
+    Fuse.Rotation _obj;
+    public MyBaseApp_FuseRotation_float_Degrees_Property(Fuse.Rotation obj) { _obj = obj;  }
+    protected override float OnGet() { return _obj.Degrees; }
+    protected override void OnSet(float v, object origin) { _obj.Degrees = v; }
+}
+sealed class MyBaseApp_FuseScaling_float_Factor_Property: Uno.UX.Property<float>
+{
+    Fuse.Scaling _obj;
+    public MyBaseApp_FuseScaling_float_Factor_Property(Fuse.Scaling obj) { _obj = obj;  }
+    protected override float OnGet() { return _obj.Factor; }
+    protected override void OnSet(float v, object origin) { _obj.Factor = v; }
 }
 sealed class MyBaseApp_FuseControlsShape_float_Smoothness_Property: Uno.UX.Property<float>
 {

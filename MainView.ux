@@ -21,6 +21,11 @@
 	            <NavigateTo Target="_c" NavigationContext="_mainNavigation" />
 	          </Clicked>
 	        </Button>
+	        <Button Text="Nav">
+	          <Clicked>
+	            <NavigateTo Target="_nav" NavigationContext="_mainNavigation" />
+	          </Clicked>
+	        </Button>
 	      </Grid>
 
 	      <Panel Dock="Fill">
@@ -124,6 +129,70 @@
 	          </Page>
 	          <Page Background="#CCCCCC">
 	          	<ScrollingAnimationPage />
+	          </Page>
+	        </PageControl>
+
+	        <PageControl ux:Name="_nav">
+	        	<JavaScript>
+
+	        	</JavaScript>
+	          <Page Background="#888">
+	          	<Panel>
+	          		<DockPanel>
+		          		<Panel ux:Name="menuButton" Width="500" Height="500" Offset="0,375" Padding="40" Dock="Bottom">
+			          		<Circle Layer="Background">
+			          			<SolidColor Color="#ee8485"/>
+			          		</Circle>
+			          		<HamburgerIcon Alignment="TopLeft" Offset="100,0"/>
+			          		<CloseIcon Alignment="TopRight" Offset="-100,0"/>
+
+			          		<Clicked>
+  	
+			          		</Clicked>
+			          		<SwipeGesture ux:Name="swipeRight" Direction="Right" Length="100" />
+			          		<SwipeGesture ux:Name="swipeLeft" Direction="Left" Length="100" />
+			          		<Swiped Source="swipeRight">
+				          		<Rotate Target="menuButton" 
+				          			Degrees="45" 
+				          			Duration="0.6" 
+				          			Easing="ExponentialInOut" />
+			          		  <Set menuRotation.Degrees="45" Delay="0.6"/>
+			          		</Swiped>
+			          		<Swiped Source="swipeLeft">
+				          		<Rotate Target="menuButton" >
+				          			<Keyframe Value="-45" Time="0.6"/>
+				          		</Rotate>
+
+			          		</Swiped>
+
+			          		<!-- <WhilePressed>
+			          		        <Spin Frequency="2" />
+			          		    </WhilePressed> -->
+							
+							<Rotation Degrees="0" ux:Name="menuRotation"/>
+
+			          	</Panel>
+			        </DockPanel>
+
+			        <WhileTrue ux:Name="showMenu">
+            			<Rotate Target="menuButton" 
+            				Degrees="45" 
+            				Duration="0.5" 
+            				Easing="ExponentialInOut" />
+            		</WhileTrue>
+	          	</Panel>	
+	          </Page>
+	          <Page Background="#0cf">
+	            <Panel>
+	            	<EdgeNavigator>
+	            	    <Panel Width="150" Edge="Left" Background="#f63" />
+	            	    <Panel Background="#fff">
+	            	        <Text Alignment="Center">
+	            	            This is an example of EdgeNavigator!
+	            	        </Text>
+	            	    </Panel>
+	            	</EdgeNavigator>
+	            </Panel>
 	          </Page>
 	        </PageControl>
 	        <FuseIntro ux:Name="_c"/>

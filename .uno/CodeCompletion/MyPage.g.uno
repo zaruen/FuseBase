@@ -4,7 +4,7 @@ public partial class MyPage: Fuse.Controls.Page
     MyBaseApp_FuseControlsTextControl_string_Value_Property temp1_Value_inst;
     MyBaseApp_FuseControlsTextControl_string_Value_Property temp2_Value_inst;
     MyBaseApp_FuseControlsToggleControl_bool_Value_Property temp3_Value_inst;
-    internal Fuse.Reactive.EventBinding temp_eb1;
+    internal Fuse.Reactive.EventBinding temp_eb0;
     static MyPage()
     {
     }
@@ -29,7 +29,7 @@ public partial class MyPage: Fuse.Controls.Page
         var temp8 = new Fuse.Reactive.DataBinding<string>(temp2_Value_inst, "lowercase");
         var temp9 = new Fuse.Reactive.DataBinding<bool>(temp3_Value_inst, "isThomas");
         var temp10 = new Fuse.Controls.Button();
-        temp_eb1 = new Fuse.Reactive.EventBinding("button_clicked");
+        temp_eb0 = new Fuse.Reactive.EventBinding("button_clicked");
         var temp11 = new Fuse.Drawing.StaticSolidColor(float4(0f, 0.9176471f, 1f, 1f));
         temp4.Children.Add(temp5);
         temp4.Children.Add(temp);
@@ -43,8 +43,8 @@ public partial class MyPage: Fuse.Controls.Page
         temp2.Behaviors.Add(temp8);
         temp3.Behaviors.Add(temp9);
         temp10.Text = "Change the value!";
-        global::Fuse.Gestures.Clicked.AddHandler(temp10, temp_eb1.OnEvent);
-        temp10.Behaviors.Add(temp_eb1);
+        global::Fuse.Gestures.Clicked.AddHandler(temp10, temp_eb0.OnEvent);
+        temp10.Behaviors.Add(temp_eb0);
         this.Background = temp11;
         this.Children.Add(temp4);
     }
