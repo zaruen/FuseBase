@@ -152,17 +152,21 @@
 			          		<SwipeGesture ux:Name="swipeRight" Direction="Right" Length="100" />
 			          		<SwipeGesture ux:Name="swipeLeft" Direction="Left" Length="100" />
 			          		<Swiped Source="swipeRight">
-				          		<Rotate Target="menuButton" 
+			          			<Clicked>
+                    				<Set timeline.TargetProgress="1" />
+                				</Clicked>
+				          		<!-- <Rotate Target="menuButton" 
 				          			Degrees="45" 
 				          			Duration="0.6" 
 				          			Easing="ExponentialInOut" />
-			          		  <Set menuRotation.Degrees="45" Delay="0.6"/>
+			          		  <Set menuRotation.Degrees="+45" Delay="0.6"/> -->
 			          		</Swiped>
 			          		<Swiped Source="swipeLeft">
-				          		<Rotate Target="menuButton" >
-				          			<Keyframe Value="-45" Time="0.6"/>
-				          		</Rotate>
-
+				          		<Rotate Target="menuButton" 
+				          			Degrees="-45" 
+				          			Duration="0.6" 
+				          			Easing="ExponentialInOut" />
+								<Set menuRotation.Degrees="-45" Delay="0.6"/>
 			          		</Swiped>
 
 			          		<!-- <WhilePressed>
@@ -170,7 +174,9 @@
 			          		    </WhilePressed> -->
 							
 							<Rotation Degrees="0" ux:Name="menuRotation"/>
-
+							<Timeline ux:Name="timeline">
+								<Change menuRotation.Degrees="45"/>
+							</Timeline>
 			          	</Panel>
 			        </DockPanel>
 
@@ -193,6 +199,30 @@
 	            	    </Panel>
 	            	</EdgeNavigator>
 	            </Panel>
+	          </Page>
+	          <Page>
+	          	<StackPanel Background="#ddd" Margin="10">
+	          	    <StackPanel Alignment="Center" Orientation="Horizontal" Margin="0,50,0,0">
+	          	    	<Button Text="Left" Clicked="{turnLeft}"/>
+	          	    	<Button Text="Right" Clicked="{turnRight}"/>
+	          	    </StackPanel>
+
+	          	    <Panel ux:Name="wheel" Width="100" Height="100" Margin="0,50,0,0">
+          	    	    <Circle Layer="Background">
+          	    			<SolidColor Color="#ee8485"/>
+          	    		</Circle>
+          	    		<Text Value="{yo}" Alignment="Center"/>
+          	    		<Panel Width="10" Height="10" Alignment="TopCenter" Margin="10">
+	          	    		<Circle>
+	          	    			<SolidColor Color="#9F5A5B"/>
+	          	    		</Circle>	
+          	    		</Panel>
+
+          	    		<Rotation Degrees="{rotationDegree}" ux:Name="wheelRotation"/>
+
+	          	    </Panel>
+
+          	    </StackPanel>
 	          </Page>
 	        </PageControl>
 	        <FuseIntro ux:Name="_c"/>
