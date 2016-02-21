@@ -76,19 +76,6 @@ var superNestedObject = {
 var pictures = Observable();
 var errorMessage = Observable("");
 
-var yo = Observable("yo");
-var rotationDegree = Observable(0);
-
-	function turnLeft(){
-		debug_log("Left");
-		rotationDegree.value -= 45;
-	}
-
-	function turnRight(){
-		debug_log("Right");
-		rotationDegree.value += 45;	
-	}
-
 fetch("http://jsonplaceholder.typicode.com/photos")
 	.then(function(result){
 
@@ -108,7 +95,7 @@ fetch("http://jsonplaceholder.typicode.com/photos")
 		errorMessage.value = "Et merde ... " + error;
 	});
 
-
+var rotatingWheel = require('RotatingWheel');
 
 module.exports = {
 	myVariable : myVariable,
@@ -125,8 +112,5 @@ module.exports = {
 	deleteRelou : deleteRelou,
 	pictures : pictures,
 	errorMessage : errorMessage,
-	turnLeft : turnLeft,
-	turnRight : turnRight,
-	rotationDegree : rotationDegree,
-	yo : yo
+	rotatingWheel : rotatingWheel
 };

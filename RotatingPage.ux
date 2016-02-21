@@ -1,0 +1,10 @@
+	<DockPanel ux:Name="origin" ux:Class="RotatingPage" >
+		<!-- <RegularPolygon Dock="Top" Sides="3" Fill="#66CCFF" Width="200" Height="200" >
+			<Rotation Degrees="180" />
+			<Stroke Brush="#fff" Width="2"/>
+		</RegularPolygon> -->
+
+		<Panel Height="200">	
+		</Panel>
+	</DockPanel>
+

@@ -1,5 +1,5 @@
 <App Theme="Basic" Background="#eeeeeeff">
-	
+	<JavaScript File="Javascript/RotatingWheel.js" ux:Global="RotatingWheel"/>
 	<JavaScript File="Javascript/main.js"/>
 	<Viewport Perspective="200" CullFace="Back">
 		<ClientPanel>
@@ -133,9 +133,6 @@
 	        </PageControl>
 
 	        <PageControl ux:Name="_nav">
-	        	<JavaScript>
-
-	        	</JavaScript>
 	          <Page Background="#888">
 	          	<Panel>
 	          		<DockPanel>
@@ -201,28 +198,10 @@
 	            </Panel>
 	          </Page>
 	          <Page>
-	          	<StackPanel Background="#ddd" Margin="10">
-	          	    <StackPanel Alignment="Center" Orientation="Horizontal" Margin="0,50,0,0">
-	          	    	<Button Text="Left" Clicked="{turnLeft}"/>
-	          	    	<Button Text="Right" Clicked="{turnRight}"/>
-	          	    </StackPanel>
-
-	          	    <Panel ux:Name="wheel" Width="100" Height="100" Margin="0,50,0,0">
-          	    	    <Circle Layer="Background">
-          	    			<SolidColor Color="#ee8485"/>
-          	    		</Circle>
-          	    		<Text Value="{yo}" Alignment="Center"/>
-          	    		<Panel Width="10" Height="10" Alignment="TopCenter" Margin="10">
-	          	    		<Circle>
-	          	    			<SolidColor Color="#9F5A5B"/>
-	          	    		</Circle>	
-          	    		</Panel>
-
-          	    		<Rotation Degrees="{rotationDegree}" ux:Name="wheelRotation"/>
-
-	          	    </Panel>
-
-          	    </StackPanel>
+	          	<RotatingWheel />
+	          </Page>
+	          <Page>
+	          	<MultiLayoutNav />
 	          </Page>
 	        </PageControl>
 	        <FuseIntro ux:Name="_c"/>

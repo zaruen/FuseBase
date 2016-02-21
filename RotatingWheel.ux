@@ -1,0 +1,125 @@
+<Panel ux:Class="RotatingWheel">
+	<StackPanel Background="#ddd" Margin="10">
+	    <StackPanel Alignment="Center" Orientation="Horizontal" Margin="0,50,0,0">
+	    	<Button Text="Left" Clicked="{rotatingWheel.turnLeft}" />
+	    	<Button Text="Right" Clicked="{rotatingWheel.turnRight}" />
+	    </StackPanel>
+		
+		<Panel>
+			<Rotation Degrees="{rotatingWheel.rotationDegree}" ux:Name="wheelRotation" />
+
+		    <Panel ux:Name="wheel" Width="100" Height="100" Alignment="Center">
+			    <Circle Layer="Background">
+					<SolidColor Color="#ee8485" />
+				</Circle>
+				<Text Value="{rotatingWheel.yo}" Alignment="Center" />
+				<Panel Width="10" Height="10" Alignment="TopCenter" Margin="10">
+		    		<Circle>
+		    			<SolidColor Color="#9F5A5B" />
+		    		</Circle>	
+				</Panel>
+
+				
+
+		    </Panel>
+
+		    <Panel Alignment="Center">
+				<RotatingPage ux:Name="page1">
+					<RegularPolygon Dock="Top" Sides="3" Fill="#66CCFF" Width="200" Height="200" >
+						<Rotation Degrees="180" />
+						<Stroke Brush="#fff" Width="2"/>
+						<Text Value="Page 1" Dock="Top" ux:Name="textp1" >
+							<Rotation Degrees="180" />
+						</Text>
+					</RegularPolygon>
+				</RotatingPage>
+
+				<RotatingPage ux:Name="page2">
+					<RegularPolygon Dock="Top" Sides="3" Fill="#66CCFF" Width="200" Height="200" >
+						<Rotation Degrees="180" />
+						<Stroke Brush="#fff" Width="2"/>
+						<Text Value="Page 2" Dock="Top" ux:Name="textp1" >
+							<Rotation Degrees="180" />
+						</Text>
+					</RegularPolygon>
+					<Rotation Degrees="60" />
+				</RotatingPage>
+
+				<RotatingPage ux:Name="page3">
+					<RegularPolygon Dock="Top" Sides="3" Fill="#66CCFF" Width="200" Height="200" >
+						<Rotation Degrees="180" />
+						<Stroke Brush="#fff" Width="2"/>
+						<Text Value="Page 3" Dock="Top" ux:Name="textp1" >
+							<Rotation Degrees="180" />
+						</Text>
+					</RegularPolygon>
+					<Rotation Degrees="120" />
+				</RotatingPage>
+
+				<RotatingPage ux:Name="page4">
+					<RegularPolygon Dock="Top" Sides="3" Fill="#66CCFF" Width="200" Height="200" >
+						<Rotation Degrees="180" />
+						<Stroke Brush="#fff" Width="2"/>
+						<Text Value="Page 4" Dock="Top" ux:Name="textp1" >
+							<Rotation Degrees="180" />
+						</Text>
+					</RegularPolygon>
+					<Rotation Degrees="180" />
+				</RotatingPage>
+
+				<RotatingPage ux:Name="page5">
+					<RegularPolygon Dock="Top" Sides="3" Fill="#66CCFF" Width="200" Height="200" >
+						<Rotation Degrees="180" />
+						<Stroke Brush="#fff" Width="2"/>
+						<Text Value="Page 5" Dock="Top" ux:Name="textp1" >
+							<Rotation Degrees="180" />
+						</Text>
+					</RegularPolygon>
+					<Rotation Degrees="-120" />
+				</RotatingPage>
+
+				<RotatingPage ux:Name="page6">
+					<RegularPolygon Dock="Top" Sides="3" Fill="#66CCFF" Width="200" Height="200" >
+						<Rotation Degrees="180" />
+						<Stroke Brush="#fff" Width="2"/>
+						<Text Value="Page 6" Dock="Top" ux:Name="textp1" >
+							<Rotation Degrees="180" />
+						</Text>
+					</RegularPolygon>
+					<Rotation Degrees="-60" />
+				</RotatingPage>
+
+
+				<!-- <RotatingPage ux:Name="page2">
+					<Rotation Degrees="-120"/>
+					<Text Value="Page 2" Dock="Bottom"/>
+				</RotatingPage>	
+
+				<RotatingPage ux:Name="page3">
+					<Rotation Degrees="-60"/>
+					<Text Value="Page 3" Dock="Bottom"/>
+				</RotatingPage>	
+
+				<RotatingPage ux:Name="page4">
+					<Text Value="Page 4" Dock="Bottom"/>
+				</RotatingPage>
+
+				<RotatingPage ux:Name="page5">
+					<Rotation Degrees="60"/>
+					<Text Value="Page 5" Dock="Bottom"/>	
+				</RotatingPage>
+
+				<RotatingPage ux:Name="page6">
+					<Rotation Degrees="120"/>
+					<Text Value="Page 6" Dock="Bottom"/>
+				</RotatingPage>	 -->
+			
+			</Panel>
+		</Panel>
+
+
+    </StackPanel>
+    <WhileActive>
+    	<BringToFront Target="textp1"/>
+    </WhileActive>
+</Panel>
