@@ -1,4 +1,4 @@
-<Panel ux:Class="RotatingWheel">
+<Panel ux:Class="RotatingWheel" ClipToBounds="true">
 	<StackPanel Background="#ddd" Margin="10">
 	    <StackPanel Alignment="Center" Orientation="Horizontal" Margin="0,50,0,0">
 	    	<Button Text="Left" Clicked="{rotatingWheel.turnLeft}" />

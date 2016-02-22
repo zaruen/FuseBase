@@ -1,4 +1,4 @@
-<Panel ux:Class="RotatingNavigation">
+<Panel ux:Class="RotatingNavigation" ClipToBounds="true">
 	<Panel Margin="50">
 		<Style>
 	       <Panel>
@@ -23,12 +23,15 @@
 	    </Style>
 		<LinearNavigation Easing="CircularOut"/>
         <SwipeNavigate SwipeDirection="Left"/>
-	    <Panel Background="Red" >
-	    	<Rectangle Width="50" Height="50" Fill="#82E8EC" Alignment="Center" ux:Name="rect1"/>
+	    <Panel Background="Red" Width="200">
+	    	<StackPanel>
+		    	<Rectangle Width="50" Height="50" Fill="#82E8EC" Alignment="Center" ux:Name="rect1"/>
 
-	    	 <Unos.Quadrilatere ux:Name="exElement" Width="100" Height="40" Margin="10" Blue="0.5"/>
+		    	<Unos.Quadrilatere ux:Name="exElement" Width="100" Height="100" Margin="10">
+		    	</Unos.Quadrilatere>
+	    	</StackPanel>
 	    </Panel>
-	    <Panel Background="Blue"/>
-	    <Panel Background="Green"/>
+	    <Panel Background="Blue" Width="200"/>
+	    <Panel Background="Green" Width="200"/>
 	</Panel>
 </Panel>

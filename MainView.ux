@@ -142,6 +142,16 @@
 	          <Page Background="#888">
 	          	<Panel>
 	          		<DockPanel>
+	          			<Style>
+	          				<StackPanel>
+	          					<!-- <EnteringAnimation>
+	          					    	 <Rotate Degrees="-30" Duration="1"/>
+	          					</EnteringAnimation>
+	          					<ExitingAnimation>
+	          					     <Rotate Degrees="30" Duration="1"/>
+	          					</ExitingAnimation> -->
+	          				</StackPanel>
+	          			</Style>
 		          		<Panel ux:Name="menuButton" Width="500" Height="500" Offset="0,375" Padding="40" Dock="Bottom">
 			          		<Circle Layer="Background">
 			          			<SolidColor Color="#ee8485"/>
@@ -149,38 +159,30 @@
 			          		<HamburgerIcon Alignment="TopLeft" Offset="100,0"/>
 			          		<CloseIcon Alignment="TopRight" Offset="-100,0"/>
 
-			          		<Clicked>
-  	
-			          		</Clicked>
-			          		<SwipeGesture ux:Name="swipeRight" Direction="Right" Length="100" />
-			          		<SwipeGesture ux:Name="swipeLeft" Direction="Left" Length="100" />
-			          		<Swiped Source="swipeRight">
-			          			<Clicked>
-                    				<Set timeline.TargetProgress="1" />
-                				</Clicked>
-				          		<!-- <Rotate Target="menuButton" 
-				          			Degrees="45" 
-				          			Duration="0.6" 
-				          			Easing="ExponentialInOut" />
-			          		  <Set menuRotation.Degrees="+45" Delay="0.6"/> -->
-			          		</Swiped>
-			          		<Swiped Source="swipeLeft">
-				          		<Rotate Target="menuButton" 
-				          			Degrees="-45" 
-				          			Duration="0.6" 
-				          			Easing="ExponentialInOut" />
-								<Set menuRotation.Degrees="-45" Delay="0.6"/>
-			          		</Swiped>
-
-			          		<!-- <WhilePressed>
-			          		        <Spin Frequency="2" />
-			          		    </WhilePressed> -->
-							
-							<Rotation Degrees="0" ux:Name="menuRotation"/>
-							<Timeline ux:Name="timeline">
-								<Change menuRotation.Degrees="45"/>
-							</Timeline>
 			          	</Panel>
+			          	<Panel>
+			          				<!-- <LinearNavigation Easing="CircularOut"/>
+			          		        <SwipeNavigate SwipeDirection="Left"/> -->
+			          		<StackPanel>       
+			          			<Unos.Quadrilatere ux:Name="exElement" Width="100" Height="200" Margin="10"/>
+			          			<Panel Height="200">	
+			          			</Panel>
+			          		</StackPanel>
+			          		<StackPanel >
+			          		         
+			          			<Unos.Quadrilatere ux:Name="exElement2" Width="100" Height="200" Margin="10"/>
+			          			<Panel Height="200">	
+			          			</Panel>
+			          			<Rotation Degrees="20"/>
+			          		</StackPanel>
+			          		<!-- <StackPanel>
+			          		         
+			          			<Unos.Quadrilatere ux:Name="exElement" Width="400" Height="700" Margin="10"/>
+			          			<Panel Height="700">	
+			          			</Panel>
+			          		</StackPanel> -->
+			          	</Panel>
+
 			        </DockPanel>
 
 			        <WhileTrue ux:Name="showMenu">
