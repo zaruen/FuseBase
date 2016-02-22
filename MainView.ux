@@ -133,6 +133,12 @@
 	        </PageControl>
 
 	        <PageControl ux:Name="_nav">
+	        	<Page Background="#888">
+	        		<RotatingNavigation />
+	        	</Page>
+	        	<Page>
+	        		<RotatingWheel />
+	        	</Page>
 	          <Page Background="#888">
 	          	<Panel>
 	          		<DockPanel>
@@ -185,7 +191,10 @@
             		</WhileTrue>
 	          	</Panel>	
 	          </Page>
-	          <Page Background="#0cf">
+	          <Page>
+	          	<MultiLayoutNav />
+	          </Page>
+  	          <Page Background="#0cf">
 	            <Panel>
 	            	<EdgeNavigator>
 	            	    <Panel Width="150" Edge="Left" Background="#f63" />
@@ -196,12 +205,6 @@
 	            	    </Panel>
 	            	</EdgeNavigator>
 	            </Panel>
-	          </Page>
-	          <Page>
-	          	<RotatingWheel />
-	          </Page>
-	          <Page>
-	          	<MultiLayoutNav />
 	          </Page>
 	        </PageControl>
 	        <FuseIntro ux:Name="_c"/>

@@ -4,7 +4,14 @@
 			<Stroke Brush="#fff" Width="2"/>
 		</RegularPolygon> -->
 
-		<Panel Height="200">	
+			           <EnteringAnimation>
+			               	 <Rotate Degrees="-60" Duration="1"/>
+			           </EnteringAnimation>
+			           <ExitingAnimation>
+			                <Rotate Degrees="60" Duration="1"/>
+			           </ExitingAnimation>
+
+		<Panel Height="300">	
 		</Panel>
 	</DockPanel>
 

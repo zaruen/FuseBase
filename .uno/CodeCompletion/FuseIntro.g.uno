@@ -48,16 +48,22 @@ public partial class FuseIntro: Fuse.Controls.Panel
         {
             var temp = new Fuse.Navigation.EnteringAnimation();
             var temp1 = new Fuse.Animations.Move();
-            var temp2 = new Fuse.Navigation.ExitingAnimation();
-            var temp3 = new Fuse.Animations.Move();
+            var temp2 = new Fuse.Animations.Rotate();
+            var temp3 = new Fuse.Navigation.ExitingAnimation();
+            var temp4 = new Fuse.Animations.Move();
+            var temp5 = new Fuse.Animations.Rotate();
             temp.Animators.Add(temp1);
+            temp.Animators.Add(temp2);
             temp1.X = -1f;
             temp1.RelativeTo = Fuse.TranslationModes.ParentSize;
-            temp2.Animators.Add(temp3);
-            temp3.X = 1f;
-            temp3.RelativeTo = Fuse.TranslationModes.ParentSize;
+            temp2.Degrees = -45f;
+            temp3.Animators.Add(temp4);
+            temp3.Animators.Add(temp5);
+            temp4.X = 1f;
+            temp4.RelativeTo = Fuse.TranslationModes.ParentSize;
+            temp5.Degrees = 45f;
             self.AddStyleBehavior(temp);
-            self.AddStyleBehavior(temp2);
+            self.AddStyleBehavior(temp3);
         }
     }
     public partial class Factory: Uno.UX.Factory
