@@ -5,7 +5,14 @@
 		<ClientPanel>
 
 	    <DockPanel>
-	      <Grid ColumnCount="3" Dock="Bottom" Background="#0cf">
+	      <Grid ColumnCount="3" Dock="Top" Background="#FBAC7D">
+	      	<Style>
+	      		<Button ux:InheritStyle="false" ClipToBounds="False"
+				Margin="4,0,0,1" Background="#DC9053" Name="self">
+				<Fuse.BasicTheme.ButtonText TextColor="#FFF" Font="RobotoMedium" Value="{Property self.Text}"
+					TextAlignment="Center"/>
+			</Button>
+	      	</Style>
 	        <Button Text="A">
 	          <Clicked>
 	            <NavigateTo Target="_a" NavigationContext="_mainNavigation" />
@@ -24,6 +31,11 @@
 	        <Button Text="Nav">
 	          <Clicked>
 	            <NavigateTo Target="_nav" NavigationContext="_mainNavigation" />
+	          </Clicked>
+	        </Button>
+	         <Button Text="Nav Advance">
+	          <Clicked>
+	            <NavigateTo Target="_navAdvance" NavigationContext="_mainNavigation" />
 	          </Clicked>
 	        </Button>
 	      </Grid>
@@ -208,6 +220,11 @@
 	            	</EdgeNavigator>
 	            </Panel>
 	          </Page>
+	        </PageControl>
+	        <PageControl ux:Name="_navAdvance">
+	        	<Page>
+	        		<BigRotatingWheel />
+	        	</Page>
 	        </PageControl>
 	        <FuseIntro ux:Name="_c"/>
 	      </Panel>

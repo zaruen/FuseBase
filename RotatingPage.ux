@@ -11,7 +11,7 @@
 			                <Rotate Degrees="60" Duration="1"/>
 			           </ExitingAnimation>
 
-		<Panel Height="300">	
+		<Panel Height="1000">	
 		</Panel>
 	</DockPanel>
 
