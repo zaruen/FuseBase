@@ -1,3 +1,10 @@
+sealed class MyBaseApp_FuseReactiveSelect_object_Data_Property: Uno.UX.Property<object>
+{
+    Fuse.Reactive.Select _obj;
+    public MyBaseApp_FuseReactiveSelect_object_Data_Property(Fuse.Reactive.Select obj) { _obj = obj;  }
+    protected override object OnGet() { return _obj.Data; }
+    protected override void OnSet(object v, object origin) { _obj.Data = v; }
+}
 sealed class MyBaseApp_FuseControlsTextControl_string_Value_Property: Uno.UX.Property<string>
 {
     Fuse.Controls.TextControl _obj;
@@ -6,13 +13,6 @@ sealed class MyBaseApp_FuseControlsTextControl_string_Value_Property: Uno.UX.Pro
     protected override void OnSet(string v, object origin) { _obj.SetValue(v, origin); }
     protected override void OnAddListener(Uno.UX.ValueChangedHandler<string> listener) { _obj.ValueChanged += listener; }
     protected override void OnRemoveListener(Uno.UX.ValueChangedHandler<string> listener) { _obj.ValueChanged -= listener; }
-}
-sealed class MyBaseApp_FuseReactiveSelect_object_Data_Property: Uno.UX.Property<object>
-{
-    Fuse.Reactive.Select _obj;
-    public MyBaseApp_FuseReactiveSelect_object_Data_Property(Fuse.Reactive.Select obj) { _obj = obj;  }
-    protected override object OnGet() { return _obj.Data; }
-    protected override void OnSet(object v, object origin) { _obj.Data = v; }
 }
 sealed class MyBaseApp_FuseReactiveEach_object_Items_Property: Uno.UX.Property<object>
 {

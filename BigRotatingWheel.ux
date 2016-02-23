@@ -3,21 +3,32 @@
 		
 		<Panel Alignment="Bottom">
 			
-		    <Panel ux:Name="wheel" Width="500" Height="500" Alignment="Top" Offset="0%, 23%">
+		    <Panel ux:Name="wheel" Width="500" Height="500" Alignment="Top" Offset="0%, 25%">
 			    <Circle Layer="Background">
-					<SolidColor Color="#ee8485" />
+					<SolidColor Color="#FFA0A1" />
+					<DropShadow ux:Name="wheelShadow" Angle="90" Distance="12" Size="20" Spread="0.1"  />
+
+					<WhilePressed>
+						<Change wheelShadow.Size="25" Duration="0.2"/>
+						<Change wheelShadow.Spread="0.5" Duration="0.2"/>
+						<Change wheelShadow.Distance="15" Duration="0.2"/>
+						<Move Target="wheel" Y="-5" Duration="0.2" Easing="ExponentialInOut"/>
+					</WhilePressed>
+
 				</Circle>
-				<Text Value="{rotatingWheel.yo}" Alignment="TopCenter" />
+				<Text Value="Page 1" Alignment="TopCenter" FontSize="15" Margin="0,20,0,0"/>
 				<!-- <Panel Width="10" Height="10" Alignment="TopCenter" Margin="10">
 		    		<Circle>
 		    			<SolidColor Color="#9F5A5B" />
 		    		</Circle>	
 				</Panel> -->
+				<Draggable/>
 		    </Panel>
 
 		    <Panel Width="500" Height="500" Alignment="Top" Offset="0%, 15%">
 		    	 <Circle Layer="Background">
 					<SolidColor Color="#fff" />
+					<DropShadow Angle="90" Distance="12" Size="20" Spread="0.1"  />
 				</Circle>
 		    </Panel>
 
@@ -27,7 +38,7 @@
 		    	<SwipeNavigate SwipeDirection="Left" />
 
 				<RotatingPage ux:Name="page1" Offset="0%, -15%">
-					<RegularPolygon Dock="Top" Sides="3" Fill="#66CCFF" Width="1000" Height="1000">
+					<RegularPolygon Dock="Top" Sides="3" Fill="#E9EEF1" Width="1000" Height="1000">
 						<Rotation Degrees="180" />
 						<!-- <Stroke Brush="#fff" Width="2"/> -->
 						<Text Value="Page 1" Dock="Top" ux:Name="textp1" >
@@ -37,10 +48,10 @@
 				</RotatingPage>
 
 				<RotatingPage ux:Name="page2" Offset="0%, -15%">
-					<RegularPolygon Dock="Top" Sides="3" Fill="#66CCFF" Width="1000" Height="1000">
+					<RegularPolygon Dock="Top" Sides="3" Fill="#E9EEF1" Width="1000" Height="1000">
 						<Rotation Degrees="180" />
 						<!-- <Stroke Brush="#fff" Width="2"/> -->
-						<Text Value="Page 2" Dock="Top" ux:Name="textp1" >
+						<Text Value="Page 2" Dock="Top" ux:Name="textp2" >
 							<Rotation Degrees="180" />
 						</Text>
 					</RegularPolygon>
