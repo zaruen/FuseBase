@@ -76,26 +76,27 @@ var superNestedObject = {
 var pictures = Observable();
 var errorMessage = Observable("");
 
-fetch("http://jsonplaceholder.typicode.com/photos")
-	.then(function(result){
+// fetch("http://jsonplaceholder.typicode.com/photos")
+// 	.then(function(result){
 
-		if(result.status !== 200){
-			errorMessage.value = "Something went wrong: " + result.status;	
-			return;
-		}
+// 		if(result.status !== 200){
+// 			errorMessage.value = "Something went wrong: " + result.status;	
+// 			return;
+// 		}
 
-		result.json().then(function(data){
-			debug_log("Success");
+// 		result.json().then(function(data){
+// 			debug_log("Success");
 
-			for (var i = 0; i <= 10; i++) {
-				pictures.add(data[i]);
-			};
-		});
-	}).catch(function(error){
-		errorMessage.value = "Et merde ... " + error;
-	});
+// 			for (var i = 0; i <= 10; i++) {
+// 				pictures.add(data[i]);
+// 			};
+// 		});
+// 	}).catch(function(error){
+// 		errorMessage.value = "Et merde ... " + error;
+// 	});
 
 var rotatingWheel = require('RotatingWheel');
+var menuManager = require('MenuManager');
 
 module.exports = {
 	myVariable : myVariable,
@@ -112,5 +113,6 @@ module.exports = {
 	deleteRelou : deleteRelou,
 	pictures : pictures,
 	errorMessage : errorMessage,
-	rotatingWheel : rotatingWheel
+	rotatingWheel : rotatingWheel,
+	menuManager : menuManager
 };
