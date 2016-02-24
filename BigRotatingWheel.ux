@@ -3,9 +3,9 @@
 		
 		<Panel Alignment="Bottom">
 			
-		    <Panel ux:Name="wheel" Width="500" Height="500" Alignment="Top" Offset="0%, 25%">
+		    <Panel ux:Name="wheel" Width="500" Height="500" Alignment="Top" Offset="0%, 27%">
 			    <Circle Layer="Background">
-					<SolidColor Color="#FFA0A1" />
+					<SolidColor Color="#249798" />
 					<DropShadow ux:Name="wheelShadow" Angle="90" Distance="12" Size="20" Spread="0.1"  />
 
 					<WhilePressed>
@@ -16,14 +16,28 @@
 					</WhilePressed>
 
 				</Circle>
-				<Text Value="Page 1" Alignment="TopCenter" FontSize="15" Margin="0,20,0,0"/>
+				<Text Value="Page 1" Alignment="TopCenter" FontSize="15" Margin="0,20,0,0" TextColor="#fff"/>
 				<!-- <Panel Width="10" Height="10" Alignment="TopCenter" Margin="10">
 		    		<Circle>
 		    			<SolidColor Color="#9F5A5B" />
 		    		</Circle>	
 				</Panel> -->
-				<Draggable/>
+				<!-- <Draggable/> -->
 		    </Panel>
+
+		        <Panel Width="500" Height="500" Alignment="Top" Offset="0%, 25%">
+		        	 <Circle Layer="Background">
+		    			<SolidColor Color="#47ABB0" />
+		    			<DropShadow Angle="90" Distance="12" Size="20" Spread="0.1"  />
+		    		</Circle>
+		        </Panel>
+
+		        <Panel Width="500" Height="500" Alignment="Top" Offset="0%, 23%">
+		        	 <Circle Layer="Background">
+		    			<SolidColor Color="#91D2E5" />
+		    			<DropShadow Angle="90" Distance="12" Size="20" Spread="0.1"  />
+		    		</Circle>
+		        </Panel>
 
 		    <Panel Width="500" Height="500" Alignment="Top" Offset="0%, 15%">
 		    	 <Circle Layer="Background">
@@ -31,6 +45,8 @@
 					<DropShadow Angle="90" Distance="12" Size="20" Spread="0.1"  />
 				</Circle>
 		    </Panel>
+
+		   
 
 		    <Panel Alignment="Center">
 
