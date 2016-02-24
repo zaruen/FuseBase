@@ -6,7 +6,7 @@
 
 		    <Panel ux:Name="wheel" Width="500" Height="500" Alignment="Top" Offset="0%, 25%">
 			    <Rectangle Layer="Background" CornerRadius="500" ux:Name="menuRect">
-					<SolidColor Color="#249798" />
+					<SolidColor Color="#28393F" />
 					<DropShadow ux:Name="wheelShadow" Angle="90" Distance="12" Size="20" Spread="0.1"  />
 
 					<WhilePressed>
@@ -36,16 +36,16 @@
 				</DoubleTapped>
 		    </Panel>
 
-		        <Panel Width="500" Height="500" Alignment="Top" Offset="0%, 25%">
+		        <Panel Width="500" Height="500" Alignment="Top" Offset="0%, 23%">
 		        	 <Circle Layer="Background">
-		    			<SolidColor Color="#47ABB0" />
+		    			<SolidColor Color="#289299" />
 		    			<DropShadow Angle="90" Distance="12" Size="20" Spread="0.1"  />
 		    		</Circle>
 		        </Panel>
 
-		        <Panel Width="500" Height="500" Alignment="Top" Offset="0%, 23%">
+		        <Panel Width="500" Height="500" Alignment="Top" Offset="0%, 21%">
 		        	 <Circle Layer="Background">
-		    			<SolidColor Color="#91D2E5" />
+		    			<SolidColor Color="#41E0EA" />
 		    			<DropShadow Angle="90" Distance="12" Size="20" Spread="0.1"  />
 		    		</Circle>
 		        </Panel>
