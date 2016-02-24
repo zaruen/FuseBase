@@ -3,8 +3,9 @@
 		
 		<Panel Alignment="Bottom">
 			
-		    <Panel ux:Name="wheel" Width="500" Height="500" Alignment="Top" Offset="0%, 27%">
-			    <Circle Layer="Background">
+
+		    <Panel ux:Name="wheel" Width="500" Height="500" Alignment="Top" Offset="0%, 25%">
+			    <Rectangle Layer="Background" CornerRadius="500" ux:Name="menuRect">
 					<SolidColor Color="#249798" />
 					<DropShadow ux:Name="wheelShadow" Angle="90" Distance="12" Size="20" Spread="0.1"  />
 
@@ -15,14 +16,24 @@
 						<Move Target="wheel" Y="-5" Duration="0.2" Easing="ExponentialInOut"/>
 					</WhilePressed>
 
-				</Circle>
-				<Text Value="Page 1" Alignment="TopCenter" FontSize="15" Margin="0,20,0,0" TextColor="#fff"/>
+				<Text Value="Page 1" Alignment="TopCenter" FontSize="15" Margin="0,20,0,0" TextColor="#fff"/>					
+				</Rectangle>
 				<!-- <Panel Width="10" Height="10" Alignment="TopCenter" Margin="10">
 		    		<Circle>
 		    			<SolidColor Color="#9F5A5B" />
 		    		</Circle>	
 				</Panel> -->
 				<!-- <Draggable/> -->
+
+				<WhileTrue Value="{menuManager.menuOpen}">
+					<Move Target="wheel" Y="-0.5" RelativeTo="Size" Duration="0.5" Easing="QuadraticInOut"/>
+					<Change menuRect.CornerRadius="0" Duration="0.2" Delay="0.4" Easing="QuadraticInOut"/>
+					<Change wheel.Height="1000"/>
+				</WhileTrue>
+
+				<DoubleTapped>
+					<Callback Handler="{menuManager.menuHandler}" />
+				</DoubleTapped>
 		    </Panel>
 
 		        <Panel Width="500" Height="500" Alignment="Top" Offset="0%, 25%">

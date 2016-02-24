@@ -1,5 +1,6 @@
 <App Theme="Basic" Background="#eeeeeeff">
 	<JavaScript File="Javascript/RotatingWheel.js" ux:Global="RotatingWheel"/>
+	<JavaScript File="Javascript/MenuManager.js" ux:Global="MenuManager"/>
 	<JavaScript File="Javascript/main.js"/>
 	<Viewport Perspective="200" CullFace="Back">
 		<ClientPanel>
