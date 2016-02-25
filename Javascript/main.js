@@ -97,6 +97,7 @@ var errorMessage = Observable("");
 
 var rotatingWheel = require('RotatingWheel');
 var menuManager = require('MenuManager');
+var inboxManager = require('InboxManager');
 
 module.exports = {
 	myVariable : myVariable,
@@ -114,5 +115,6 @@ module.exports = {
 	pictures : pictures,
 	errorMessage : errorMessage,
 	rotatingWheel : rotatingWheel,
-	menuManager : menuManager
+	menuManager : menuManager,
+	inboxManager : inboxManager
 };

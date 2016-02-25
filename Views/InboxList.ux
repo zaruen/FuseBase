@@ -1,0 +1,95 @@
+<DockPanel ux:Class="Views.InboxList">
+
+	<Font File="../Assets/Fonts/RobotoCondensed-Bold.ttf" ux:Global="Bold" />
+	<Font File="../Assets/Fonts/RobotoCondensed-Regular.ttf" ux:Global="Regular" />
+	<Font File="../Assets/Fonts/RobotoCondensed-Light.ttf" ux:Global="Light" />
+
+	<FileImageSource ux:Key="contact1" File="../Assets/Contacts/Contact1.png" />
+	<FileImageSource ux:Key="contact2" File="../Assets/Contacts/Contact2.png" />
+	<FileImageSource ux:Key="contact3" File="../Assets/Contacts/Contact3.png" />
+	<FileImageSource ux:Key="contact4" File="../Assets/Contacts/Contact4.png" />
+
+	<StackPanel Dock="Top" Background="#79f">
+		<StatusBarBackground />
+		<iOS.StatusBarConfig Style="Light" />
+		<Panel>
+			<Image File="../Assets/Icons/menu.png" Alignment="CenterLeft" Margin="10" Height="15" Offset="0,2" />
+			<Text Value="Inbox" TextAlignment="Center" TextColor="#fff" Font="Bold" FontSize="24" Margin="0,10,0,5" />
+		</Panel>
+	</StackPanel>
+	<BottomBarBackground Dock="Bottom" />
+
+
+	<ScrollView>
+		<StackPanel Background="#F8DADA">
+			<Each Items="{inboxManager.messages}">
+				<Panel>
+					<PageControl Active="contents">
+						<Page>
+							<ActivatingAnimation>		
+								<Set postponeText.Opacity="0" />
+								<Set doneText.Opacity="1" />
+								<Set postponeIcon.Opacity="0" />
+								<Set checkmarkIcon.Opacity="1" />
+								<Change background.Color="#050" Easing="ExponentialOut" />
+								<Scale Target="checkmarkIcon" Factor="2.8" Easing="BackOut" />
+							</ActivatingAnimation>
+							<WhileActive>									
+								<Callback Handler="{inboxManager.removeItem}" />
+							</WhileActive>
+				
+						</Page>
+						<Page ux:Name="contents" Background="#FFFFFF">
+							<DockPanel Margin="7,1,7,0">
+								<Circle Height="50" Width="50" Dock="Left" Margin="7,7,0,7" Alignment="TopLeft">
+									<ImageFill Source="{DataToResource icon}" />
+								</Circle>
+					
+								<StackPanel Margin="7,3,7,7">
+									<Text Font="Regular" Value="{subject}" FontSize="16" />
+									<Text Font="Regular" Value="{sender}" FontSize="16" TextColor="#999" />
+									<Text TextWrapping="Wrap" Font="Light" Value="{summary}" FontSize="14" TextColor="#000" />
+								</StackPanel>
+							</DockPanel>
+						</Page>
+						<Page>
+							<ActivatingAnimation>		
+								<Set postponeText.Opacity="1" />
+								<Set doneText.Opacity="0" />
+								<Set checkmarkIcon.Opacity="0" />
+								<Set postponeIcon.Opacity="1" />
+								<Change background.Color="#bb0" Easing="ExponentialOut" />
+								<Scale Target="postponeIcon" Factor="2.8" Easing="BackOut" />
+							</ActivatingAnimation>
+							<WhileActive>
+								<Callback Handler="{inboxManager.postponeItem}" />
+							</WhileActive>
+						</Page>
+					</PageControl>
+
+					<Text ux:Class="Operation" Font="Regular" TextAlignment="Center" Alignment="Center" 
+						TextColor="#fff" FontSize="22" />
+					<Operation ux:Name="doneText" >Done</Operation>
+					<Operation ux:Name="postponeText">Postponed</Operation>
+					<Image ux:Class="IconInbox" Width="20" Height="20" Margin="30" />
+					<IconInbox ux:Name="checkmarkIcon" Alignment="CenterLeft" 
+						File="../Assets/Icons/Checkmark.png" />
+					<IconInbox ux:Name="postponeIcon" Alignment="CenterRight" 
+						File="../Assets/Icons/Postpone.png" />
+					<Rectangle>
+						<SolidColor ux:Name="background" Color="#fff" />
+					</Rectangle>
+					<RemovingAnimation>
+						<Move RelativeTo="Size" Y="-1" Duration="0.4" Easing="CircularInOut" />
+					</RemovingAnimation>
+
+					<LayoutAnimation>
+						<Move RelativeTo="LayoutChange" Y="1" Duration="0.8" Easing="CircularInOut" />
+					</LayoutAnimation>
+
+				</Panel>
+				
+			</Each>
+		</StackPanel>
+	</ScrollView>
+</DockPanel>

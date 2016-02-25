@@ -1,11 +1,16 @@
 <Panel ux:Class="BasicAnimPage">
+	<ScrollView>
 	<StackPanel>
 		<Style>
 			<Rectangle Width="100" Height="100" CornerRadius="10" Margin="20">
 				<SolidColor Color="#96FBA0"/>
 			</Rectangle>
+			<Circle Width="10" Height="10" Margin="20" >
+				<SolidColor Color="#454443"/>		
+			</Circle>
+			<Text FontSize="12"/>
 		</Style>
-		<StackPanel Orientation="Horizontal" ContentAlignment="Center" ux:Name="stack" Dock="Top" Background="#FEB6B6">
+		<StackPanel Orientation="Horizontal" ContentAlignment="Center" Background="#FEB6B6">
 			<Rectangle ux:Name="rect1">
 				<WhilePressed>
 		            <Rotate Target="rect1" Degrees="90" DelayBack="0.5" Duration="0.5" Easing="QuadraticOut" EasingBack="QuadraticIn" />
@@ -22,7 +27,7 @@
 				</Tapped>
 			</Rectangle>			
 		</StackPanel>
-		<StackPanel Orientation="Horizontal" ContentAlignment="Center" ux:Name="stack" Dock="Top" Background="#FEFDB6">
+		<StackPanel Orientation="Horizontal" ContentAlignment="Center" Background="#FEFDB6">
 			<Rectangle ux:Name="rect3">
 				<Draggable/>
 		        <WhileDragging>
@@ -39,9 +44,323 @@
 				</Tapped>
 			</Rectangle>
 		</StackPanel>
+		<DockPanel  Background="#B6E5FE" Height="100">
+			<Text Value="Linear" Dock="Top" Alignment="TopLeft"/>
+			<StackPanel Orientation="Horizontal" ContentAlignment="Center" Dock="Bottom">
+				<StackPanel>
+					<Circle>
+						<Clicked>
+							<Move Y="-5" RelativeTo="Size" Duration="0.8" Easing="Linear" />
+						</Clicked>
+					</Circle>
+					<Text Value="In" />
+				</StackPanel>
+			</StackPanel>
+		</DockPanel>
+
+		<DockPanel  Background="#DBB6FE" Height="100">
+			<Text Value="Quadratic" Dock="Top" Alignment="TopLeft"/>
+			<StackPanel Orientation="Horizontal" ContentAlignment="Center" Dock="Bottom">
+				<StackPanel>
+					<Circle>
+						<Clicked>
+							<Move Y="-5" RelativeTo="Size" Duration="0.8" Easing="QuadraticIn" />
+						</Clicked>
+					</Circle>
+					<Text Value="In" />
+				</StackPanel>
+				<StackPanel>
+					<Circle>
+						<Clicked>
+							<Move Y="-5" RelativeTo="Size" Duration="0.8" Easing="QuadraticOut" />
+						</Clicked>
+					</Circle>
+					<Text Value="Out" />
+				</StackPanel>
+				<StackPanel>
+					<Circle>
+						<Clicked>
+							<Move Y="-5" RelativeTo="Size" Duration="0.8" Easing="QuadraticInOut" />
+						</Clicked>
+					</Circle>
+					<Text Value="InOut" />
+				</StackPanel>
+			</StackPanel>
+		</DockPanel>
+
+		<DockPanel  Background="#FDB6FE" Height="100">
+			<Text Value="Cubic" Dock="Top" Alignment="TopLeft"/>
+			<StackPanel Orientation="Horizontal" ContentAlignment="Center" Dock="Bottom">
+				<StackPanel>
+					<Circle>
+						<Clicked>
+							<Move Y="-5" RelativeTo="Size" Duration="0.8" Easing="CubicIn" />
+						</Clicked>
+					</Circle>
+					<Text Value="In" />
+				</StackPanel>
+				<StackPanel>
+					<Circle>
+						<Clicked>
+							<Move Y="-5" RelativeTo="Size" Duration="0.8" Easing="CubicOut" />
+						</Clicked>
+					</Circle>
+					<Text Value="Out" />
+				</StackPanel>
+				<StackPanel>
+					<Circle>
+						<Clicked>
+							<Move Y="-5" RelativeTo="Size" Duration="0.8" Easing="CubicInOut" />
+						</Clicked>
+					</Circle>
+					<Text Value="InOut" />
+				</StackPanel>
+			</StackPanel>
+		</DockPanel>
+
+		<DockPanel  Background="#FEB6B6" Height="100">
+			<Text Value="Quartic" Dock="Top" Alignment="TopLeft"/>
+			<StackPanel Orientation="Horizontal" ContentAlignment="Center" Dock="Bottom">
+				<StackPanel>
+					<Circle>
+						<Clicked>
+							<Move Y="-5" RelativeTo="Size" Duration="0.8" Easing="QuarticIn" />
+						</Clicked>
+					</Circle>
+					<Text Value="In" />
+				</StackPanel>
+				<StackPanel>
+					<Circle>
+						<Clicked>
+							<Move Y="-5" RelativeTo="Size" Duration="0.8" Easing="QuarticOut" />
+						</Clicked>
+					</Circle>
+					<Text Value="Out" />
+				</StackPanel>
+				<StackPanel>
+					<Circle>
+						<Clicked>
+							<Move Y="-5" RelativeTo="Size" Duration="0.8" Easing="QuarticInOut" />
+						</Clicked>
+					</Circle>
+					<Text Value="InOut" />
+				</StackPanel>
+			</StackPanel>
+		</DockPanel>
+
+		<DockPanel  Background="#FED8B6" Height="100">
+			<Text Value="Quintic" Dock="Top" Alignment="TopLeft"/>
+			<StackPanel Orientation="Horizontal" ContentAlignment="Center" Dock="Bottom">
+				<StackPanel>
+					<Circle>
+						<Clicked>
+							<Move Y="-5" RelativeTo="Size" Duration="0.8" Easing="QuinticIn" />
+						</Clicked>
+					</Circle>
+					<Text Value="In" />
+				</StackPanel>
+				<StackPanel>
+					<Circle>
+						<Clicked>
+							<Move Y="-5" RelativeTo="Size" Duration="0.8" Easing="QuinticOut" />
+						</Clicked>
+					</Circle>
+					<Text Value="Out" />
+				</StackPanel>
+				<StackPanel>
+					<Circle>
+						<Clicked>
+							<Move Y="-5" RelativeTo="Size" Duration="0.8" Easing="QuinticInOut" />
+						</Clicked>
+					</Circle>
+					<Text Value="InOut" />
+				</StackPanel>
+			</StackPanel>
+		</DockPanel>
+
+		<DockPanel  Background="#FEEBB6" Height="100">
+			<Text Value="Sinusoidal" Dock="Top" Alignment="TopLeft"/>
+			<StackPanel Orientation="Horizontal" ContentAlignment="Center" Dock="Bottom">
+				<StackPanel>
+					<Circle>
+						<Clicked>
+							<Move Y="-5" RelativeTo="Size" Duration="0.8" Easing="SinusoidalIn" />
+						</Clicked>
+					</Circle>
+					<Text Value="In" />
+				</StackPanel>
+				<StackPanel>
+					<Circle>
+						<Clicked>
+							<Move Y="-5" RelativeTo="Size" Duration="0.8" Easing="SinusoidalOut" />
+						</Clicked>
+					</Circle>
+					<Text Value="Out" />
+				</StackPanel>
+				<StackPanel>
+					<Circle>
+						<Clicked>
+							<Move Y="-5" RelativeTo="Size" Duration="0.8" Easing="SinusoidalInOut" />
+						</Clicked>
+					</Circle>
+					<Text Value="InOut" />
+				</StackPanel>
+			</StackPanel>
+		</DockPanel>
+
+		<DockPanel  Background="#FEFBB6" Height="100">
+			<Text Value="Exponential" Dock="Top" Alignment="TopLeft"/>
+			<StackPanel Orientation="Horizontal" ContentAlignment="Center" Dock="Bottom">
+				<StackPanel>
+					<Circle>
+						<Clicked>
+							<Move Y="-5" RelativeTo="Size" Duration="0.8" Easing="ExponentialIn" />
+						</Clicked>
+					</Circle>
+					<Text Value="In" />
+				</StackPanel>
+				<StackPanel>
+					<Circle>
+						<Clicked>
+							<Move Y="-5" RelativeTo="Size" Duration="0.8" Easing="ExponentialOut" />
+						</Clicked>
+					</Circle>
+					<Text Value="Out" />
+				</StackPanel>
+				<StackPanel>
+					<Circle>
+						<Clicked>
+							<Move Y="-5" RelativeTo="Size" Duration="0.8" Easing="ExponentialInOut" />
+						</Clicked>
+					</Circle>
+					<Text Value="InOut" />
+				</StackPanel>
+			</StackPanel>
+		</DockPanel>
+
+		<DockPanel  Background="#E5FEB6" Height="100">
+			<Text Value="Circular" Dock="Top" Alignment="TopLeft"/>
+			<StackPanel Orientation="Horizontal" ContentAlignment="Center" Dock="Bottom">
+				<StackPanel>
+					<Circle>
+						<Clicked>
+							<Move Y="-5" RelativeTo="Size" Duration="0.8" Easing="CircularIn" />
+						</Clicked>
+					</Circle>
+					<Text Value="In" />
+				</StackPanel>
+				<StackPanel>
+					<Circle>
+						<Clicked>
+							<Move Y="-5" RelativeTo="Size" Duration="0.8" Easing="CircularOut" />
+						</Clicked>
+					</Circle>
+					<Text Value="Out" />
+				</StackPanel>
+				<StackPanel>
+					<Circle>
+						<Clicked>
+							<Move Y="-5" RelativeTo="Size" Duration="0.8" Easing="CircularInOut" />
+						</Clicked>
+					</Circle>
+					<Text Value="InOut" />
+				</StackPanel>
+			</StackPanel>
+		</DockPanel>
+
+		<DockPanel  Background="#BDFEB6" Height="100">
+			<Text Value="Elastic" Dock="Top" Alignment="TopLeft"/>
+			<StackPanel Orientation="Horizontal" ContentAlignment="Center" Dock="Bottom">
+				<StackPanel>
+					<Circle>
+						<Clicked>
+							<Move Y="-5" RelativeTo="Size" Duration="0.8" Easing="ElasticIn" />
+						</Clicked>
+					</Circle>
+					<Text Value="In" />
+				</StackPanel>
+				<StackPanel>
+					<Circle>
+						<Clicked>
+							<Move Y="-5" RelativeTo="Size" Duration="0.8" Easing="ElasticOut" />
+						</Clicked>
+					</Circle>
+					<Text Value="Out" />
+				</StackPanel>
+				<StackPanel>
+					<Circle>
+						<Clicked>
+							<Move Y="-5" RelativeTo="Size" Duration="0.8" Easing="ElasticInOut" />
+						</Clicked>
+					</Circle>
+					<Text Value="InOut" />
+				</StackPanel>
+			</StackPanel>
+		</DockPanel>
+
+		<DockPanel  Background="#B6FEE9" Height="100">
+			<Text Value="Back" Dock="Top" Alignment="TopLeft"/>
+			<StackPanel Orientation="Horizontal" ContentAlignment="Center" Dock="Bottom">
+				<StackPanel>
+					<Circle>
+						<Clicked>
+							<Move Y="-5" RelativeTo="Size" Duration="0.8" Easing="BackIn" />
+						</Clicked>
+					</Circle>
+					<Text Value="In" />
+				</StackPanel>
+				<StackPanel>
+					<Circle>
+						<Clicked>
+							<Move Y="-5" RelativeTo="Size" Duration="0.8" Easing="BackOut" />
+						</Clicked>
+					</Circle>
+					<Text Value="Out" />
+				</StackPanel>
+				<StackPanel>
+					<Circle>
+						<Clicked>
+							<Move Y="-5" RelativeTo="Size" Duration="0.8" Easing="BackInOut" />
+						</Clicked>
+					</Circle>
+					<Text Value="InOut" />
+				</StackPanel>
+			</StackPanel>
+		</DockPanel>
+
+		<DockPanel  Background="#B6ECFE" Height="100">
+			<Text Value="Bounce" Dock="Top" Alignment="TopLeft"/>
+			<StackPanel Orientation="Horizontal" ContentAlignment="Center" Dock="Bottom">
+				<StackPanel>
+					<Circle>
+						<Clicked>
+							<Move Y="-5" RelativeTo="Size" Duration="0.8" Easing="BounceIn" />
+						</Clicked>
+					</Circle>
+					<Text Value="In" />
+				</StackPanel>
+				<StackPanel>
+					<Circle>
+						<Clicked>
+							<Move Y="-5" RelativeTo="Size" Duration="0.8" Easing="BounceOut" />
+						</Clicked>
+					</Circle>
+					<Text Value="Out" />
+				</StackPanel>
+				<StackPanel>
+					<Circle>
+						<Clicked>
+							<Move Y="-5" RelativeTo="Size" Duration="0.8" Easing="BounceInOut" />
+						</Clicked>
+					</Circle>
+					<Text Value="InOut" />
+				</StackPanel>
+			</StackPanel>
+		</DockPanel>
+
 	</StackPanel>
 
-
+</ScrollView>
 
 
 </Panel>
