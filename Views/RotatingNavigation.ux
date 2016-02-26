@@ -1,0 +1,249 @@
+<Panel ux:Class="Views.RotatingNavigation">
+		<StackPanel Background="#E9EEF1">
+			
+			<Panel Alignment="Bottom">
+				
+
+			    <Panel ux:Name="wheel" Width="500" Height="500" Alignment="Top" Offset="0%, 28%">
+				    <Rectangle Layer="Background" CornerRadius="500" ux:Name="menuRect">
+						<SolidColor Color="#28393F" />
+						<DropShadow ux:Name="wheelShadow" Angle="90" Distance="12" Size="20" Spread="0.1"  />
+
+						
+						
+						<Panel Alignment="TopCenter" Width="100">
+							<PageControl>
+								<Page>
+									<ActivatingAnimation>		
+										<NavigateTo Target="_games" NavigationContext="_pagesNav"/>
+									</ActivatingAnimation>
+									<Text Value="Games" FontSize="15" Margin="0,20,0,0" TextColor="#fff"/>
+								</Page>
+								<Page>
+									<ActivatingAnimation>		
+										<NavigateTo Target="_paternity" NavigationContext="_pagesNav"/>
+									</ActivatingAnimation>
+									<Text Value="Paternity Tests" FontSize="15" Margin="0,20,0,0" TextColor="#fff"/>
+								</Page>
+								<Page>
+									<ActivatingAnimation>		
+										<NavigateTo Target="_contenders" NavigationContext="_pagesNav"/>
+									</ActivatingAnimation>
+									<Text Value="Contenders" FontSize="15" Margin="0,20,0,0" TextColor="#fff"/>
+								</Page>
+
+							</PageControl>	
+						</Panel>
+										
+					</Rectangle>
+
+
+					<WhileTrue Value="{menuManager.menuOpen}">
+						<Move Target="wheel" Y="-0.5" RelativeTo="Size" Duration="0.5" Easing="QuadraticInOut"/>
+						<Change menuRect.CornerRadius="0" Duration="0.2" Delay="0.4" Easing="QuadraticInOut"/>
+						<Change wheel.Height="1000"/>
+					</WhileTrue>
+
+					<DoubleTapped>
+						<Callback Handler="{menuManager.menuHandler}" />
+					</DoubleTapped>
+
+					<WhilePressed>
+						<Change wheelShadow.Size="25" Duration="0.2"/>
+						<Change wheelShadow.Spread="0.5" Duration="0.2"/>
+						<Change wheelShadow.Distance="15" Duration="0.2"/>
+						<Move Target="wheel" Y="-5" Duration="0.2" Easing="ExponentialInOut"/>
+					</WhilePressed>
+			    </Panel>
+
+			        <Panel Width="500" Height="500" Alignment="Top" Offset="0%, 25%">
+			        	 <Circle Layer="Background">
+			    			<SolidColor Color="#289299" />
+			    			<DropShadow Angle="90" Distance="12" Size="20" Spread="0.1"  />
+
+			    			<!-- <Panel Alignment="TopCenter" Width="100">
+			    				<Style>
+			    					<Text TextColor="#28393F"/>
+			    				</Style>
+			    				<PageControl>
+			    					<Page>
+			    						<ActivatingAnimation>		
+			    							<NavigateTo Target="_games" NavigationContext="_pagesNav"/>
+			    						</ActivatingAnimation>
+			    						<Text Value="My Games" FontSize="15" Margin="0,20,0,0" />
+			    					</Page>
+			    					<Page>
+			    						<ActivatingAnimation>		
+			    							<NavigateTo Target="_paternity" NavigationContext="_pagesNav"/>
+			    						</ActivatingAnimation>
+			    						<Text Value="Contenders Games" FontSize="15" Margin="0,20,0,0" />
+			    					</Page>
+			    					<Page>
+			    						<ActivatingAnimation>		
+			    							<NavigateTo Target="_contenders" NavigationContext="_pagesNav"/>
+			    						</ActivatingAnimation>
+			    						<Text Value="Recommendations" FontSize="15" Margin="0,20,0,0"/>
+			    					</Page>
+
+			    				</PageControl>	
+
+
+			    			</Panel> -->
+							<MultiLayoutPanel ux:Name="tabBar">
+				    			<StackPanel Orientation="Horizontal" Alignment="TopCenter">
+				    				<Style>
+				    					<Text TextColor="#28393F" FontSize="12" Name="self">
+				    					</Text>
+				    				</Style>
+				    				<Panel Margin="0,20,0,0" Offset="0%, 80%" ux:Name="_contendersGamesTab">
+				    					<Placeholder  Target="indicator"/>
+				    					<Rotation Degrees="-33"/>
+				    					<Text Value="Contenders Games"/>
+				    					<Clicked>
+				    						<Set _gamesPagesNav.Active="contendersGames" />
+				    					</Clicked>
+				    				</Panel>
+				    				
+				    				<Panel Margin="50,10,50,0" ux:Name="_myGamesTab" Height="50">
+				    					<Placeholder>
+				    						<!-- <Rectangle ux:Name="indicator" Alignment="Bottom" Width="50" Height="4" Fill="#FFB18F">
+				    							<LayoutAnimation>
+				    								<Move RelativeTo="LayoutChange" X="1" Duration="0" Easing="Linear"/>
+				    							</LayoutAnimation>
+				    						</Rectangle> -->
+
+				    						<Circle StartAngleDegrees="-120" LengthAngleDegrees="60" ux:Name="indicator" Alignment="Top" >
+				    							<LayoutAnimation>
+				    								<Move RelativeTo="LayoutChange" X="1" Duration="0" Easing="Linear"/>
+				    							</LayoutAnimation>
+				    							<Stroke Brush="#FF8227" Width="5"/>	
+				    						</Circle>
+				    						
+				    					</Placeholder>
+				    					<Text Value="My Games" />
+				    					<Clicked>
+				    						<Set _gamesPagesNav.Active="myGames" />
+				    					</Clicked>
+				    				</Panel>
+				    				
+				    				<Panel Margin="0,20,0,0" Offset="0%, 80%" ux:Name="_recommendationsTab">
+				    					<Placeholder  Target="indicator"/>
+				    					<Rotation Degrees="33"/>
+				    					<Text Value="Recommendations" />
+				    					<Clicked>
+											<Set _gamesPagesNav.Active="recommendations" />
+										</Clicked>
+				    				</Panel>
+				    				
+				    			</StackPanel>
+		    				</MultiLayoutPanel>
+			    		</Circle>
+			    		<Circle StartAngleDegrees="-95" LengthAngleDegrees="10" ux:Name="TheCircle" Offset="0, 55">
+			    		    <Stroke Brush="#FF8227" Width="5"/>				                    
+			    		    <Rotation Degrees="0" ux:Name="indicatorRotation"/>
+			    		</Circle>
+			        </Panel>
+
+			        <Panel Width="500" Height="500" Alignment="Top" Offset="0%, 22%">
+			        	 <Circle Layer="Background">
+			    			<SolidColor Color="#41E0EA" />
+			    			<DropShadow Angle="90" Distance="12" Size="20" Spread="0.1"  />
+			    		</Circle>
+			        </Panel>
+
+			   <!--  <Panel Width="500" Height="500" Alignment="Top" Offset="0%, 15%">
+			    	 <Circle Layer="Background">
+						<SolidColor Color="#fff" />
+						<DropShadow Angle="90" Distance="12" Size="20" Spread="0.1"  />
+					</Circle>
+			    </Panel> -->
+
+			   
+
+			    <Panel Alignment="Center">
+
+			    	<LinearNavigation Duration="0.4" Easing="CircularOut" ux:Name="_pagesNav"/>
+			    	<SwipeNavigate SwipeDirection="Left" />
+
+					<RotatingPage ux:Name="_games" Offset="0%, 0%">
+						<Panel Dock="Top" Background="#E9EEF1" Height="500">
+							
+							<!-- <LinearNavigation Duration="0.4" Easing="CircularOut" ux:Name="_gamesPagesNav" Active="myGames"/>
+	    					<SwipeNavigate SwipeDirection="Left" /> -->
+
+	    					<PageControl Active="myGames" ux:Name="_gamesPagesNav">
+	    						<Page ux:Name="contendersGames" Background="#F9CFCF">
+	    							<WhileActive Threshold="0.2">
+	    								<!-- <Set tabBar.LayoutElement="_contendersGamesTab" /> -->
+	    								<Change indicatorRotation.Degrees="-33" Easing="BackIn" Duration="0.4"/>
+	    							</WhileActive>
+	    							<Text>Welcome to Page 1</Text>
+	    						</Page>
+
+	    						
+	    						<Page ux:Name="myGames" Background="#F9E5CF">
+	    							<WhileActive Threshold="0.2">
+	    							<!-- <Set tabBar.LayoutElement="_myGamesTab" /> -->
+	    							<Change indicatorRotation.Degrees="0" Easing="BackIn" Duration="0.4" DurationBack="0.4"/>
+	    						</WhileActive>
+	    						<Text>Welcome to Page 2</Text>
+	    						</Page>
+	    						
+	    						
+	    						<Page ux:Name="recommendations" Background="#F9ECCF">
+	    							<WhileActive Threshold="0.2">
+	    								<!-- <Set tabBar.LayoutElement="_recommendationsTab" /> -->
+	    								<Change indicatorRotation.Degrees="33" Easing="BackIn" Duration="0.4"/>
+	    							</WhileActive>
+	    							<Text>Welcome to Page3</Text>
+	    						</Page>
+	    					</PageControl>
+
+										
+						
+						</Panel>
+						
+					</RotatingPage>
+
+					<RotatingPage ux:Name="_paternity" Offset="0%, 0%">
+						<Panel Dock="Top" Background="#E9EEF1" Height="500">
+							<!-- <Rotation Degrees="180" /> -->
+							<!-- <Text Value="Paternity Tests" Dock="Top" /> -->
+							<Panel>
+								<Slider Alignment="TopCenter" Width="200">
+								    <ProgressAnimation>
+								        <Change Target="TheCircle.LengthAngleDegrees" Value="359.99"/>
+								        <Rotate Target="Arrow" Degrees="360"/>
+								    </ProgressAnimation>
+								</Slider>
+							        <Panel Width="500" Height="500" Alignment="Center">
+							            <Panel ux:Name="Arrow">    
+							                <Image File="../Assets/arrow.png" Alignment="TopCenter"/>
+							            </Panel>
+
+							            <Circle StartAngleDegrees="-95" LengthAngleDegrees="10" ux:Name="TheCircle" Offset="0, 280">
+							                <Stroke Brush="#FF8227" Width="5"/>				                    
+							                <Rotation Degrees="-33"/>
+							            </Circle>
+							        </Panel>
+
+							       
+							    </Panel>
+							
+						</Panel>
+					</RotatingPage>
+
+					<RotatingPage ux:Name="_contenders" Offset="0%, -15%">
+						<RegularPolygon Dock="Top" Sides="3" Fill="#E9EEF1" Width="1000" Height="1000">
+							<Rotation Degrees="180" />
+							<Text Value="Contenders" Dock="Top"  >
+								<Rotation Degrees="180" />
+							</Text>
+						</RegularPolygon>
+					</RotatingPage>
+
+				</Panel>
+			</Panel>
+
+	    </StackPanel>
+</Panel>

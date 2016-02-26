@@ -233,13 +233,11 @@
 	        		<BigRotatingWheel />
 	        	</Page>
 	        </PageControl>
-	         <!-- <PageControl ux:Name="_list"> -->
 				<PageControl ux:Name="_list">
 					<Views.InboxList />
 				</PageControl>
-	        <!-- </PageControl> -->
 	        <PageControl ux:Name="_c">
-	        	<BigRotatingWheel />
+	        	<Views.RotatingNavigation />
 	       	</PageControl>
 	      </Panel>
 	    </DockPanel>
